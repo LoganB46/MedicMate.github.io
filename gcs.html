@@ -53,4 +53,67 @@
             </ul>
          </div>
         </div>
+        
+        <!-- Calculator script below-->
+    <h1>Glascow Coma Scale Calculator</h1>
+        <div class="section">
+            <label for="eye-opening">EYE Opening Response</label>
+            <select id="eye-opening">
+                <option value="1">1: No eye opening</option>
+                <option value="2">2: Eye opening to pain</option>
+                <option value="3">3: Eye opening to veral command</option>
+                <option value="4">4: Eyes open spontaneously</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <label for="verbal-response">Verbal Response</label>
+            <select id="verbal-response">
+                <option value="1">1: No verbal response</option>
+                <option value="2">2: Incomprehensible sounds</option>
+                <option value="3">3: Inappropriate words</option>
+                <option value="4">4: Confused</option>
+                <option value="5">5: Oriented</option>
+            </select>
+        </div>
+
+        <div class="section">
+            <label for="motor-response">Motor Response</label>
+                <select id="motor-response">
+                    <option value="1">1: No motor response</option>
+                    <option value="2">2: Extension to pain (decerebrate response)</option>
+                    <option value="3">3: Flexion to pain (decorticate response)</option>
+                    <option value="4">4: Withdrawal from pain</option>
+                    <option value="5">5: Localizing pain</option>
+                    <option value="6">6: Obeys commands</option>
+                </select>
+        </div>
+
+        <button onclick="calculateGCS()">Calculate GCS</button>
+
+        <div id="result"></div>
+
+        <script>
+            function calculateGCS() {
+                var eyeOpening = parseInt(document.getElementById("eye-opening").value);
+                var verbalResponse = parseInt(document.getElementById("verbal-response").value);
+                var motorResponse = parseInt(document.getElementById("motor-response").value);
+
+                var gcsScore = eyeOpening + verbalResponse + motorResponse;
+
+                var interpretation;
+                if (gcsScore <= 8) {
+                    interpretation = "Severe head injury";
+                } else {
+                    interpretation = "Mild head injury";
+                }
+
+
+                document.getElementById("result").innerHTML =
+                "<p> Total GCS Score:"
+                    + gcsScore + "</p>" +
+                    "<p>Interpretation: "
+                        + interpretation + "</p>";
+            }
+        </script>
     </body>
