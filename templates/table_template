@@ -1,0 +1,26 @@
+<div class="table-container">    
+            <table id="diverttable">
+               <caption>
+                    EMSA Calculator
+                </caption>
+
+                <tr>
+    <!--Top row,for labeling-->
+                    <th></th> <!--Blank-->
+                    <th>Abnormal?</th> <!--Abnormal (checkbox colum)-->
+                </tr>
+    <!--Table rows below-->
+                <tr> <!--Eye movement row-->
+                    <td>
+                        <h5>Name</h5>
+                        <h6>Instructions</h6>
+                    <div class="checkbox-group">
+                    </td> <!--Description-->
+                    <td>
+                        <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                    </td> <!--Checkbox-->
+                    
+                </tr>
+    <!--Stop copy here for table row-->
+
+</div>

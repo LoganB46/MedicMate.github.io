@@ -54,3 +54,129 @@
             </ul>
          </div>
         </div>
+        <!--<h1>EMSA Calculator</h1>-->
+
+         <div class="table-container">    
+            <table id="emsatable">
+               <caption>
+                    EMSA Calculator
+                </caption>
+
+                <tr>
+                    <!--Top row,for labeling-->
+                    <th></th> <!--Blank-->
+                    <th>Abnormal?</th> <!--Abnormal (checkbox colum)-->
+                </tr>
+                <!--Table heading above, hospitals below-->
+                 <!--Eye movement row-->
+                <tr>
+                    <td>
+                    <h5>Eye Movement</h5>
+                    </td>
+                </tr>
+                    <tr>
+                        <td>
+                            <h6>Horizontal Gaze: Ask patient to keep their head still and follow your finger left to right with their eyes.</h6>
+                            <h6>In aphasic patients, call the patient's name on one side and then the other.</h6>
+                            <h6>Abnormal:Patient is unable to follow as well in one direction compared to the other</h6>
+                        <div class="checkbox-group">
+                        </td> <!--Description-->
+                        <td>
+                            <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                        </td> <!--Checkbox-->
+                     </tr>
+
+                <tr> <!--Motor row-->
+                    <td>
+                        <h5>Motor - Asymmetric Face, Arm, or Leg Weakness</h5>
+                    </td> <!--Description-->
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Facial Weakness: Ask patient to show their teeth or smile.</h6> 
+                        <h6>In aphasic patients, look for asymmetric grimace to pain.</h6>
+                        <h6>Abnormal: One side of the face does not move as well as the other.</h6>
+                        <div class="checkbox-group">
+                    </td>
+                    <td>
+                        <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                    </td> <!--Checkbox-->
+                </tr>
+
+                <tr>
+                    <td>
+                        <h6>Arm Weakness: Ask patient to hold out both arms, palms up, for 10 seconds with eyes closed.</h6>
+                        <h6>In aphasic patients, hold the patinets arms up and let go</h6>
+                        <h6>Abnormal: One arm does not move or drifts down compared to the other.</h6>
+                        <div class="checkbox-group">
+                    </td>
+                        <td>
+                            <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                        </td> <!--Checkbox-->
+                </tr>
+
+                <tr>
+                    <td>
+                        <h6>Leg Weakness: Ask patient to lift up one leg and then the other for 5 seconds.</h6>
+                        <h6>In aphasic patients, hold up one leg and let go, then repeat on the other side.</h6>
+                        <h6>Abnormal: One leg does not move or drifts down compared to the other.</h6>
+                        <div class="checkbox-group">
+                    </td>
+
+                    <td>
+                        <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                    </td> <!--Checkbox-->
+               </tr>
+
+               <tr>
+                    <td>
+                        <h5>Slurred speech or Aphasia</h5>
+                    </td>
+               </tr>
+
+               <tr>
+                    <td>
+                        <h6>Naming: Ask patient to name your watch and pen.</h6>
+                        <h6>Abnormal: Patient slurs words, says the wrong words, or is unable to speak.</h6>
+                        <div class="checkbox-group">
+                    </td>
+                        <td>
+                            <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                        </td> <!--Checkbox-->
+               </tr>
+               <tr>
+                    <td>
+                        <h6>Repetition: Ask patient to repeat "They heard him speak on the radio last night" after you.</h6>
+                        <h6>Abnormal: Patient slurs words, says the wrong words, or is unable to speak.</h6>
+                        <div class="checkbox-group">
+                    </td>
+                    <td>
+                        <label><input type="checkbox" class="value-checkbox" value="1"></label>
+                    </td> <!--Checkbox-->
+               </tr>
+        </div>
+        <div id="result"></div>
+
+        <button onclick="calculateSum()">Calculate Score</button>
+
+        <div id="result"></div>
+    
+        <script>
+            function calculateSum() {
+                // Get all checkboxes with class 'value-checkbox'
+                var checkboxes = document.querySelectorAll('.value-checkbox');
+                var sum = 0;
+    
+                // Loop through checkboxes and add value if checked
+                checkboxes.forEach(function(checkbox) {
+                    if (checkbox.checked) {
+                        sum += parseFloat(checkbox.value);
+                    }
+                });
+    
+                // Display the result
+                document.getElementById('result').innerHTML = "Total Sum: " + sum;
+            }
+        </script>
+
+    </body>
