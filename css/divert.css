@@ -1,38 +1,42 @@
-body {background-color: black;
-    color:white}
-#header {color: rgb(22, 5, 182);
-    border: 1px solid black;
-    padding-left: 5px;
-    margin: 5px;
-    text-align: center;
-    font-family: "Lucida Console", "Courier New", monospace;}
-#emsatable {color: white;
-        text-align: center;
-        font-family: "Lucida Console", "Courier New", monospace;
-    }
+body {
+  background-color: black;
+  color: white;
+}
+#header {
+  color: rgb(22, 5, 182);
+  border: 1px solid black;
+  padding-left: 5px;
+  margin: 5px;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+#emsatable {
+  color: white;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 .wrapper {
-    width: min(900px, 100% - 3rem);
-    margin-inline: auto;
+  width: min(900px, 100% - 3rem);
+  margin-inline: auto;
 }
 
 table {
-    background: rgb(5, 182, 141);
-    width: 100%;
-    
-        }
+  background: rgb(5, 182, 141);
+  width: 100%;
+}
 th,
 td {
-   padding: 1rem;
-        }
+  padding: 1rem;
+}
 th {
-    background-color: rgb(74, 71, 71);
-    font-size: 1.5rem;
-    font-weight: 700;
+  background-color: rgb(74, 71, 71);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 tr:nth-of-type(2n) {
-    background: rgb(4, 145, 112);
+  background: rgb(4, 145, 112);
 }
 .table-container {
-    max-width: 100%;
-    overflow-x: scroll;
+  max-width: 100%;
+  overflow-x: scroll;
 }
