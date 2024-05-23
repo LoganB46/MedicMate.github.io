@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+    margin: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: rgb(22, 5, 182);
+     }
+#header {
+    color: rgb(22, 5, 182);
+    border: 1px solid black;
+    padding-left: 5px;
+    margin: 5px;
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+    }

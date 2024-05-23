@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scare=1">
+        <title>Burn Calculator</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/burn.css" rel="stylesheet"/>
+        <script src="js/bootstrap.bundle.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+        <header>
+            <div class="container">
+                <div class="row">
+                 <div class="col-xxlg-6">
+                     <div id="header">
+                      <h1>Medic Mate</h1>
+                      </div>
+                     </div>
+                </div>
+        </header>
+        </div>
+        <div class="container">
+            <div class="row">
+        <ul class="nav justify-content-center">
+            <ul class="nav nav-tabs">
+                <li class="nav item">
+                    <a class="nav-link "
+                    href="divert.html">Diversion</a>
+                </li>
+                <li class="nav item">
+                    <a class="nav-link "
+                    href="gcs.html">GCS Calculator</a>
+                </li>
+                <li class="nav item">
+                    <a class="nav-link"
+                    href="emsa.html">EMSA Calculator</a>
+                </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="burn.html">Burn Calculator</a>
+        </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="directory.html">Hospital Directory</a>
+        </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="about.html">About Us</a>
+        </li>
+                </ul>   
+            </ul>
+         </div>
+        </div>
+
+        
+            <h1>Total Body Surface Area (TBSA) Burn Calculator</h1>
+            <p>Click on the areas of the body that are burned.</p>
+        
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Human_body_silhouette.png" usemap="#bodymap" alt="Body Diagram">
+        
+            <map name="bodymap">
+                <area shape="rect" coords="45,35,225,300" alt="Torso" onclick="toggleBurn('torso', 18)">
+                <area shape="rect" coords="20,35,40,170" alt="Left Arm" onclick="toggleBurn('left-arm', 9)">
+                <area shape="rect" coords="230,35,250,170" alt="Right Arm" onclick="toggleBurn('right-arm', 9)">
+                <area shape="rect" coords="80,300,140,450" alt="Left Leg" onclick="toggleBurn('left-leg', 18)">
+                <area shape="rect" coords="150,300,210,450" alt="Right Leg" onclick="toggleBurn('right-leg', 18)">
+                <area shape="rect" coords="90,5,170,35" alt="Head" onclick="toggleBurn('head', 9)">
+            </map>
+        
+            <button onclick="calculateTBSA()">Calculate TBSA</button>
+        
+            <div id="result"></div>
+        
+            <script>
+                const burnAreas = {
+                    'head': 9,
+                    'torso': 18,
+                    'left-arm': 9,
+                    'right-arm': 9,
+                    'left-leg': 18,
+                    'right-leg': 18
+                };
+        
+                const selectedAreas = {};
+        
+                function toggleBurn(area, value) {
+                    if (selectedAreas[area]) {
+                        delete selectedAreas[area];
+                    } else {
+                        selectedAreas[area] = value;
+                    }
+                    alert(area + ' toggled');
+                }
+        
+                function calculateTBSA() {
+                    let totalBurn = 0;
+                    for (let area in selectedAreas) {
+                        totalBurn += selectedAreas[area];
+                    }
+                    document.getElementById('result').innerText = "Total Body Surface Area Burned: " + totalBurn + "%";
+                }
+            </script>
+        </body>
+        </html>
