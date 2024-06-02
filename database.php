@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$dbname = "medic_mate";
+$dbname = "login_db";
 $username = "root";
 $password = "";
 
