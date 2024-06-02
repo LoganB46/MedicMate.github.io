@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, initial-scare=1">
-        <title>Medic Mate</title>
+        <title>Medication Calculator</title>
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="css/index.css" rel="stylesheet"/>
+        <link href="css/drugcalc.css" rel="stylesheet"/>
         <script src="js/bootstrap.bundle.js"></script>
-    </head>
+    
 
-    <body>
         <div id="header">
         <header>
             <div class="container">
@@ -38,10 +37,10 @@
                     <a class="nav-link"
                     href="emsa.html">EMSA Calculator</a>
                 </li>
-                <li class="nav item">
-                    <a class="nav-link"
-                    href="drugcalc.html">Medication Calculators</a>
-                </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="drugcalc.html">Medication Calculators</a>
+        </li>
         <li class="nav item">
             <a class="nav-link"
             href="directory.html">Hospital Directory</a>
@@ -54,9 +53,27 @@
             </ul>
          </div>
         </div>
-        
-    <div id="p1">
-        Welcome to Medic Mate, this webstie is still under development and may contain bugs.
-        <!-- Edit font, location, and text color in index css file -->
-    </div>
+    </head>
+
+    <body>
+        <div id="dripcalc">
+        <div class="container">
+            <h1>Medication Drip Rate Calculator</h1>
+            <form id="dripRateForm">
+                <label for="volume">Volume to be infused (ml):</label>
+                <input type="number" id="volume" name="volume" required>
+                
+                <label for="time">Time (minutes):</label>
+                <input type="number" id="time" name="time" required>
+                
+                <label for="dropFactor">Drop Factor (gtts/ml):</label>
+                <input type="number" id="dropFactor" name="dropFactor" required>
+                
+                <button type="button" onclick="calculateDripRate()">Calculate</button>
+            </form>
+            <div id="result"></div>
+        </div>
+        <script src="js/drugcalc.js"></script>
+        </div>
     </body>
+    </html>
