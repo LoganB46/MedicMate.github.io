@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Control Interface</title>
+    <link rel="stylesheet" href="css/divertadmin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Table Control Interface</h1>
+        <form id="editForm">
+            <label for="rowSelect">Select Hospital:</label>
+            <select id="rowSelect">
+                <option value="1">Choose One</option>
+                <option value="2">MIS</option>
+                <option value="3">USAMC</option>
+                <option value="4">MIMC</option>
+                <option value="5">SHMC</option>
+                <option value="6">USAFED</option>
+                <option value="7">PROV</option>
+            </select>
+            
+            <label for="columnSelect">Select Hospital Service:</label>
+            <select id="columnSelect">
+                <option value="1">Choose One</option>
+                <option value="2">Trauma</option>
+                <option value="3">ICU</option>
+                <option value="4">X-ray</option>
+                <option value="5">Cath-lab</option>
+                <option value="6">CT</option>
+                <option value="7">Notes</option>
+            </select>
+            
+            <label for="newValue">New Status:</label>
+            <input type="text" id="newValue" required>
+            
+            <button type="button" onclick="updateTable()">Update Status</button>
+        </form>
+    </div>
+    <script src="js/divertadmin.js"></script>
+</body>
+</html>
+
