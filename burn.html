@@ -56,52 +56,91 @@
         </div>
 
         
-            <h1>Total Body Surface Area (TBSA) Burn Calculator</h1>
-            <p>Click on the areas of the body that are burned.</p>
-        
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Human_body_silhouette.png" usemap="#bodymap" alt="Body Diagram">
-        
-            <map name="bodymap">
-                <area shape="rect" coords="45,35,225,300" alt="Torso" onclick="toggleBurn('torso', 18)">
-                <area shape="rect" coords="20,35,40,170" alt="Left Arm" onclick="toggleBurn('left-arm', 9)">
-                <area shape="rect" coords="230,35,250,170" alt="Right Arm" onclick="toggleBurn('right-arm', 9)">
-                <area shape="rect" coords="80,300,140,450" alt="Left Leg" onclick="toggleBurn('left-leg', 18)">
-                <area shape="rect" coords="150,300,210,450" alt="Right Leg" onclick="toggleBurn('right-leg', 18)">
-                <area shape="rect" coords="90,5,170,35" alt="Head" onclick="toggleBurn('head', 9)">
-            </map>
-        
-            <button onclick="calculateTBSA()">Calculate TBSA</button>
-        
-            <div id="result"></div>
-        
-            <script>
-                const burnAreas = {
-                    'head': 9,
-                    'torso': 18,
-                    'left-arm': 9,
-                    'right-arm': 9,
-                    'left-leg': 18,
-                    'right-leg': 18
-                };
-        
-                const selectedAreas = {};
-        
-                function toggleBurn(area, value) {
-                    if (selectedAreas[area]) {
-                        delete selectedAreas[area];
-                    } else {
-                        selectedAreas[area] = value;
-                    }
-                    alert(area + ' toggled');
+        <h1>Total Body Surface Area (TBSA) Burn Calculator</h1>
+    <p>Click on the areas of the body that are burned.</p>
+
+    <div class="image-container">
+        <img src="img/burns_image.png" usemap="#image-map" alt="Body Diagram" id="burnImage">
+        <canvas id="highlightCanvas"></canvas>
+    </div>
+
+    <map name="image-map">
+        <area shape="poly" coords="69,99,83,94,97,89,106,85,117,90,131,91,146,90,157,90,165,93,172,101,174,122,173,133,173,143,173,158,170,173,170,190,169,206,153,208,136,209,121,209,105,209,90,209,82,209,81,198,78,186,78,174,76,160,76,146,78,130,74,112" alt="Chest" onclick="toggleBurn('chest', 9)">
+        <area shape="poly" coords="70,98,56,116,51,145,54,166,48,206,41,247,35,279,17,315,32,338,39,344,49,340,55,331,65,330,55,287,61,262,70,236,78,212,77,178,73,143,76,130,73,114,73,106" alt="Left Arm" onclick="toggleBurn('left-arm', 4.5)">
+        <area shape="poly" coords="173,99,189,102,196,115,200,135,199,155,197,171,197,191,202,207,205,234,209,263,209,287,219,303,228,319,213,313,212,336,205,343,192,347,186,339,177,332,184,311,190,292,190,269,182,254,174,235,170,219,173,198,175,183,174,164,177,143,173,119" alt="Right Arm" onclick="toggleBurn('right-arm', 4.5)">
+        <area shape="poly" coords="127,305,132,295,139,286,150,278,161,271,170,267,177,266,179,280,179,297,177,309,176,327,169,345,165,364,161,380,157,398,153,417,153,433,153,448,153,464,149,480,144,500,141,516,143,530,142,546,147,562,147,572,137,578,125,578,116,569,117,560,117,544,117,525,119,508,121,490,121,474,121,459,121,444,124,432,121,422,120,408,123,391,125,377,126,365,126,353,126,340,125,324" alt="Left Leg" onclick="toggleBurn('left-leg', 9)">
+        <area shape="poly" coords="73,263,83,266,90,272,98,277,105,284,110,289,117,293,122,302,124,314,122,328,121,344,120,358,119,372,117,388,117,400,117,411,119,419,114,428,114,440,114,453,116,464,113,478,111,489,110,501,110,515,110,528,109,540,109,552,111,563,106,570,97,573,88,572,77,568,82,556,85,541,89,526,89,514,87,499,83,481,80,460,81,438,85,418,85,402,83,389,78,378,75,367,71,355,70,344,69,329,69,316,69,302,69,289,71,277" alt="Right Leg" onclick="toggleBurn('right-leg', 9)">
+        <area shape="poly" coords="129,2,149,9,161,38,157,52,149,69,149,91,125,95,110,85,109,67,106,54,97,49,101,34,102,18,113,7" alt="Face" onclick="toggleBurn('face', 4.5)">
+        <area shape="poly" coords="106,280,113,270,123,267,133,267,139,273,146,280,137,292,127,300,117,295,111,288" alt="Genitals" onclick="toggleBurn('genitals', 1)">
+        <area shape="poly" coords="84,209,99,209,114,209,129,208,144,208,160,208,166,208,168,223,171,244,175,261,165,269,153,277,145,280,137,269,125,266,113,269,106,275,101,282,89,273,80,265,73,264,75,250,79,236,81,221" alt="Abdomen" onclick="toggleBurn('abdomen', 9)">
+    </map>
+
+    <button onclick="calculateTBSA()">Calculate TBSA</button>
+    <button onclick="clearSelections()">Clear Selections</button>
+
+    <div id="result"></div>
+
+    <script>
+        const burnAreas = {
+            'face': 4.5,
+            'chest': 9,
+            'left-arm': 4.5,
+            'right-arm': 4.5,
+            'left-leg': 9,
+            'right-leg': 9,
+            'abdomen': 9,
+            'genitals': 1
+        };
+
+        const selectedAreas = {};
+
+        function toggleBurn(area, value) {
+            if (selectedAreas[area]) {
+                delete selectedAreas[area];
+            } else {
+                selectedAreas[area] = value;
+            }
+            drawHighlights();
+        }
+
+        function calculateTBSA() {
+            let totalBurn = 0;
+            for (let area in selectedAreas) {
+                totalBurn += selectedAreas[area];
+            }
+            document.getElementById('result').innerText = "Total Body Surface Area Burned: " + totalBurn + "%";
+        }
+
+        function clearSelections() {
+            for (let area in selectedAreas) {
+                delete selectedAreas[area];
+            }
+            drawHighlights();
+            document.getElementById('result').innerText = "";
+        }
+
+        function drawHighlights() {
+            const img = document.getElementById('burnImage');
+            const canvas = document.getElementById('highlightCanvas');
+            const context = canvas.getContext('2d');
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            context.fillStyle = 'rgba(255, 0, 0, 0.5)';
+
+            for (let area in selectedAreas) {
+                const coords = document.querySelector(`area[alt="${area.replace('-', ' ')}"]`).coords.split(',').map(Number);
+                context.beginPath();
+                context.moveTo(coords[0], coords[1]);
+                for (let i = 2; i < coords.length; i += 2) {
+                    context.lineTo(coords[i], coords[i + 1]);
                 }
-        
-                function calculateTBSA() {
-                    let totalBurn = 0;
-                    for (let area in selectedAreas) {
-                        totalBurn += selectedAreas[area];
-                    }
-                    document.getElementById('result').innerText = "Total Body Surface Area Burned: " + totalBurn + "%";
-                }
-            </script>
+                context.closePath();
+                context.fill();
+            }
+        }
+    </script>
         </body>
         </html>
