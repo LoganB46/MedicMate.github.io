@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, initial-scare=1">
-        <title>Medication Calculator</title>
+        <title>Calculators</title>
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="css/drugcalc.css" rel="stylesheet"/>
+        <link href="css/calculators.css" rel="stylesheet"/>
         <script src="js/bootstrap.bundle.js"></script>
-    
+    </head>
 
+    <body>
         <div id="header">
         <header>
             <div class="container">
@@ -33,10 +34,18 @@
                     <a class="nav-link "
                     href="divert.html">Diversion</a>
                 </li>
+                <!--<li class="nav item">
+                    <a class="nav-link "
+                    href="gcs.html">GCS Calculator</a>
+                </li>
                 <li class="nav item">
                     <a class="nav-link"
-                    href="calculators.html">Calculators</a>
+                    href="emsa.html">EMSA Calculator</a>
                 </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="burn.html">Burn Calculator</a>
+        </li>-->
         <li class="nav item">
             <a class="nav-link"
             href="directory.html">Hospital Directory</a>
@@ -49,27 +58,20 @@
             </ul>
          </div>
         </div>
-    </head>
-
-    <body>
-        <div id="dripcalc">
-        <div class="container">
-            <h1>Medication Drip Rate Calculator</h1>
-            <form id="dripRateForm">
-                <label for="volume">Volume to be infused (ml):</label>
-                <input type="number" id="volume" name="volume" required>
-                
-                <label for="time">Time (minutes):</label>
-                <input type="number" id="time" name="time" required>
-                
-                <label for="dropFactor">Drop Factor (gtts/ml):</label>
-                <input type="number" id="dropFactor" name="dropFactor" required>
-                
-                <button type="button" onclick="calculateDripRate()">Calculate</button>
-            </form>
-            <div id="result"></div>
+        
+    
+        <div class="navbar">
+            <ul class="nav flex-column">
+            <a href="gcs.html">GCS Calculator</a>
+            <a href="emsa.html">EMSA Calculator</a>
+            <a href="drugcalc.html">Drug Calculator</a>
+            <a href="burn.html">Burn Calculator</a>
+            <a href="weight.html">Ideal Body Weight Calculator</a>
+            </ul>
         </div>
-        <script src="js/drugcalc.js"></script>
+        <div class="content">
+            <h1>Welcome to the Medical Calculators Page</h1>
+            <p>Select a calculator from the left to begin.</p>
         </div>
     </body>
     </html>
