@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+  }
+  #header {
+    color: rgb(22, 5, 182);
+    border: 1px solid black;
+    padding-left: 5px;
+    margin: 5px;
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  .pgraph-head {
+    color: white;
+    text-align: justify;
+    font-family: lucida;
+    font-size: 22px;
+  }
+  .pgraph {
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    width:90% ;
+    word-wrap: normal;
+    }
