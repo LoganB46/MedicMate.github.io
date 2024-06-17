@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scare=1">
+        <title>Ideal Body Weight Calculator</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/weight.css" rel="stylesheet"/>
+        <script src="js/bootstrap.bundle.js"></script>
+    </head>
+    <body>
+        <div id="header">
+        <header>
+            <div class="container">
+                <div class="row">
+                 <div class="col-xxlg-6">
+                     <div id="header">
+                      <h1>Medic Mate</h1>
+                      </div>
+                     </div>
+                </div>
+        </header>
+        </div>
+        <div class="container">
+            <div class="row">
+        <ul class="nav justify-content-center">
+            <ul class="nav nav-tabs">
+                <li class="nav item">
+                    <a class="nav-link"
+                    href="index.html">Home</a>
+                </li>
+                <li class="nav item">
+                    <a class="nav-link "
+                    href="divert.html">Diversion</a>
+                </li>
+                <li class="nav item">
+                    <a class="nav-link"
+                    href="calculators.html">Calculators</a>
+                </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="directory.html">Hospital Directory</a>
+        </li>
+        <li class="nav item">
+            <a class="nav-link"
+            href="about.html">About Us</a>
+        </li>
+                </ul>   
+            </ul>
+         </div>
+        </div>
+        <header>
+            <h1>Ideal Body Weight Calculator</h1>
+        </header>
+        <main>
+            <form id="ibw-form">
+                <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" name="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <button type="button" onclick="calculateIBW()">Calculate IBW</button>
+            </form>
+            <div id="result"></div>
+        </main>
+        <script src="js/weight.js"></script>
+
+        <div class="converter">
+            <h2>Feet and Inches to Centimeters Converter</h2>
+            <form id="conversionForm">
+              <div class="form-group">
+                <label for="feet">Feet:</label>
+                <input type="number" id="feet" name="feet" step="any" min="0" required>
+              </div>
+              <div class="form-group">
+                <label for="inches">Inches:</label>
+                <input type="number" id="inches" name="inches" step="any" min="0" max="11" required>
+              </div>
+              <button type="button" onclick="convert()">Convert</button>
+            </form>
+            <div id="result"></div>
+          </div>
+          
+          <script src="js/hconvert.js"></script>
+          </body>
+          </html>
+    </body>
+    </html>
