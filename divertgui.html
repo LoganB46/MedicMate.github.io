@@ -13,7 +13,13 @@
     
     <div class="table-responsive">
         <table class="table table-bordered" id="editable-table">
-            <thead class="table-dark"></thead>
+            <thead class="table-dark">
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                </tr>
+            </thead>
             <tbody></tbody>
         </table>
     </div>
@@ -78,17 +84,51 @@
             console.log("Updated Table Data:", updatedData);
 
             // Send data to an API (if the external site allows it)
-            fetch("YOUR_API_ENDPOINT", {
+            fetch("http://127.0.0.1:5000/update_table", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ tableData: updatedData })
+                body: JSON.stringify({ tableData: updatedData })// Send table data
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) throw new Error (`HTTP error! Status: ${response.status}`);
+                return response.json(); //Expect Json response
+            })
             .then(data => {
+                console.log("Server response:",data);
                 alert("Table updated successfully!");
+
             })
             .catch(error => console.error("Error updating table:", error));
         }
+        function saveChanges() {
+    const inputs = document.querySelectorAll('input');
+    let updatedData = [];
+
+    document.querySelectorAll('#editable-table tbody tr').forEach(tr => {
+        let rowData = [];
+        tr.querySelectorAll('input').forEach(input => {
+            rowData.push(input.value);
+        });
+        updatedData.push(rowData);
+    });
+
+    fetch("http://127.0.0.1:5000/update_table", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tableData: updatedData })  // Send updated table data
+    })
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        return response.json();  // Expect JSON response
+    })
+    .then(data => {
+        console.log("Server response:", data);
+        alert("Table updated successfully!");
+    })
+    .catch(error => console.error("Error updating table:", error));
+}
+
+       
     </script>
 
 </body>
