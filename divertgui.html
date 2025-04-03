@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table from Another Webpage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+
+    <h1 class="text-center">Edit Table from Another Webpage</h1>
+    <button class="btn btn-primary mb-3" onclick="loadTable()">Load Table</button>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered" id="editable-table">
+            <thead class="table-dark"></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+    <button class="btn btn-success" onclick="saveChanges()">Save Changes</button>
+
+    <script>
+        const externalTableURL = 'divert.html'; // Replace with actual URL
+
+        async function loadTable() {
+            try {
+                const response = await fetch(externalTableURL, { mode: 'cors' }); // CORS needed
+                const text = await response.text();
+                
+                // Create a temporary DOM parser
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(text, 'text/html');
+
+                // Extract table
+                let externalTable = doc.querySelector('table');
+                if (!externalTable) {
+                    alert("No table found on the page!");
+                    return;
+                }
+
+                // Convert table data to editable table
+                let table = document.getElementById('editable-table');
+                table.innerHTML = externalTable.innerHTML;
+
+                // Make table cells editable
+                let cells = table.querySelectorAll('tbody td');
+                cells.forEach((cell, index) => {
+                    let input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = cell.innerText;
+                    input.classList.add('form-control');
+                    input.dataset.index = index;
+                    cell.innerHTML = '';
+                    cell.appendChild(input);
+                });
+
+            } catch (error) {
+                console.error("Error loading table:", error);
+                alert("Failed to load table.");
+            }
+        }
+
+        function saveChanges() {
+            let inputs = document.querySelectorAll('#editable-table tbody input');
+            let updatedData = [];
+
+            // Convert table inputs into a 2D array
+            let rows = document.querySelectorAll('#editable-table tbody tr');
+            rows.forEach(row => {
+                let rowData = [];
+                row.querySelectorAll('td input').forEach(input => {
+                    rowData.push(input.value);
+                });
+                updatedData.push(rowData);
+            });
+
+            console.log("Updated Table Data:", updatedData);
+
+            // Send data to an API (if the external site allows it)
+            fetch("YOUR_API_ENDPOINT", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ tableData: updatedData })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Table updated successfully!");
+            })
+            .catch(error => console.error("Error updating table:", error));
+        }
+    </script>
+
+</body>
+</html>
