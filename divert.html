@@ -156,46 +156,55 @@ function updateDiversionRows() {
   const table = document.getElementById("diverttable");
   if (!table || table.rows.length < 2) return;
 
-  // Find status columns from header
   const headerCells = table.rows[0].cells;
   const statusCols = [];
+  let notesCol = -1;
+
+  // Detect status columns + notes column from header text
   for (let c = 0; c < headerCells.length; c++) {
-    if (headerCells[c].hasAttribute("data-status")) {
-      statusCols.push(c);
-    }
+    const headerText = headerCells[c].textContent.trim().toUpperCase();
+
+    if (headerCells[c].hasAttribute("data-status")) statusCols.push(c);
+    if (headerText === "NOTES") notesCol = c;
   }
 
-  // Process each hospital row
   for (let r = 1; r < table.rows.length; r++) {
     const row = table.rows[r];
-    let hasAlert = false;
 
-    statusCols.forEach(c => {
+    let hasAlert = false;
+    let hasDelayed = false;
+
+    // Check status columns: anything other than CLEAR/N/A triggers alert
+    for (const c of statusCols) {
       const cell = row.cells[c];
-      if (!cell) return;
+      if (!cell) continue;
 
       const value = cell.textContent.trim().toUpperCase();
-
-      // Anything other than CLEAR or N/A triggers an alert
       if (value !== "CLEAR" && value !== "N/A" && value !== "") {
         hasAlert = true;
+        break;
       }
-    });
-
-    row.classList.remove("row-alert");
-
-    if (hasAlert) {
-      row.classList.add("row-alert");
     }
+
+    // Check notes for "delayed" (only matters if no alert)
+    if (!hasAlert && notesCol !== -1) {
+      const notesCell = row.cells[notesCol];
+      const notesText = (notesCell?.textContent || "").toLowerCase();
+      if (notesText.includes("delayed")) {
+        hasDelayed = true;
+      }
+    }
+
+    row.classList.remove("row-alert", "row-warning");
+
+    if (hasAlert) row.classList.add("row-alert");
+    else if (hasDelayed) row.classList.add("row-warning");
   }
 }
 
-// Run on load
 window.addEventListener("load", updateDiversionRows);
-
-// Re-run automatically (perfect for Flask / XML refreshes)
 setInterval(updateDiversionRows, 1000);
-</script>
+</script>>
         <script src="js/divert.js"></script>
 
     </body>
