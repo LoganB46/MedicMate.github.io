@@ -41,14 +41,15 @@ tr:nth-of-type(2n) {
   overflow-x: scroll;
 }
 
-/* Status coloring overrides (add at bottom of divert.css) */
-.status-clear {
-  /* optional: you can omit this if you want the normal green to come from your table defaults */
-  background-color: inherit;
-}
-
-.status-alert {
+/* Row alert coloring */
+.row-alert {
   background-color: crimson !important;
   color: white !important;
   font-weight: 700;
+}
+
+/* Optional: make links & text stay readable */
+.row-alert td {
+  background-color: crimson !important;
+  color: white !important;
 }
