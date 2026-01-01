@@ -122,7 +122,7 @@
                 fetch("http://127.0.0.1:5000/get_table")  // Fetch updated table data from Flask
                     .then(response => response.json())
                     .then(data => {
-                        const table = document.getElementById('editable-table');
+                        const table = document.getElementById('diverttable');
                         const tbody = table.querySelector('tbody');
                         tbody.innerHTML = ""; // Clear table
         
@@ -142,20 +142,23 @@
             window.onload = fetchTableData;  // Fetch latest data when page loads
         </script>
 <script>
-function updateDiversionColors() {
+function updateDiversionRows() {
   const table = document.getElementById("diverttable");
   if (!table || table.rows.length < 2) return;
 
-  // Determine which columns are status columns from the header
+  // Find status columns from header
   const headerCells = table.rows[0].cells;
   const statusCols = [];
   for (let c = 0; c < headerCells.length; c++) {
-    if (headerCells[c].hasAttribute("data-status")) statusCols.push(c);
+    if (headerCells[c].hasAttribute("data-status")) {
+      statusCols.push(c);
+    }
   }
 
-  // Apply coloring for each data row
+  // Process each hospital row
   for (let r = 1; r < table.rows.length; r++) {
     const row = table.rows[r];
+    let hasAlert = false;
 
     statusCols.forEach(c => {
       const cell = row.cells[c];
@@ -163,22 +166,25 @@ function updateDiversionColors() {
 
       const value = cell.textContent.trim().toUpperCase();
 
-      cell.classList.remove("status-alert");
-
-      // Treat CLEAR and N/A as OK; everything else is alert
+      // Anything other than CLEAR or N/A triggers an alert
       if (value !== "CLEAR" && value !== "N/A" && value !== "") {
-        cell.classList.add("status-alert");
+        hasAlert = true;
       }
     });
+
+    row.classList.remove("row-alert");
+
+    if (hasAlert) {
+      row.classList.add("row-alert");
+    }
   }
 }
 
-// Run on load and after updates
-window.addEventListener("load", updateDiversionColors);
+// Run on load
+window.addEventListener("load", updateDiversionRows);
 
-// If your Flask fetch replaces table contents, call updateDiversionColors() after it runs too.
-// As a fallback, re-check periodically:
-setInterval(updateDiversionColors, 1000);
+// Re-run automatically (perfect for Flask / XML refreshes)
+setInterval(updateDiversionRows, 1000);
 </script>
         <script src="js/divert.js"></script>
 
