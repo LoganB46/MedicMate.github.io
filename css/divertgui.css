@@ -1,0 +1,191 @@
+/* ========== Global Theme (matches rest of site) ========== */
+:root {
+  --bg: #000;
+  --text: #fff;
+
+  --brand-blue: rgb(22, 5, 182);
+
+  --table-green: rgb(5, 182, 141);
+  --table-green-alt: rgb(4, 145, 112);
+  --table-header: rgb(74, 71, 71);
+
+  --panel: #111;
+  --panel-border: #222;
+
+  --accent: #14b8a6; /* teal-ish accent that fits your green table */
+  --danger: crimson;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin: 0;
+}
+
+/* ========== Header ========== */
+#header {
+  color: var(--brand-blue);
+  border: 1px solid #000;
+  padding-left: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+/* ========== Bootstrap nav tabs (match your vibe) ========== */
+.nav-tabs {
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.nav-tabs .nav-link {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px 8px 0 0;
+  margin: 0 4px;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: var(--panel-border);
+  color: var(--accent);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--text);
+  background: var(--panel);
+  border-color: var(--panel-border) var(--panel-border) transparent;
+}
+
+/* ========== Page layout helpers ========== */
+.wrapper {
+  width: min(1100px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* ========== Table styling (same as diversion display) ========== */
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+}
+
+table {
+  background: var(--table-green);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+th {
+  background-color: var(--table-header);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+tr:nth-of-type(2n) {
+  background: var(--table-green-alt);
+}
+
+/* ========== Admin inputs (for GUI editing) ========== */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  background: #0b0b0b;
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
+  outline: none;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+}
+
+/* If your GUI uses contenteditable cells */
+td[contenteditable="true"] {
+  outline: 2px dashed rgba(255, 255, 255, 0.15);
+  outline-offset: -6px;
+  border-radius: 8px;
+}
+
+td[contenteditable="true"]:focus {
+  outline: 2px dashed rgba(20, 184, 166, 0.6);
+}
+
+/* ========== Buttons (Bootstrap-compatible) ========== */
+button,
+.btn {
+  font-family: inherit;
+  border-radius: 12px;
+}
+
+.btn-primary {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #001a17 !important;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn-danger {
+  background-color: var(--danger) !important;
+  border-color: var(--danger) !important;
+  font-weight: 700;
+}
+
+.btn-outline-light {
+  border-color: var(--panel-border) !important;
+}
+
+.btn-outline-light:hover {
+  background: var(--panel) !important;
+}
+
+/* ========== Small utility styles ========== */
+hr {
+  border-color: var(--panel-border);
+}
+
+label {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.small-muted {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
