@@ -53,3 +53,15 @@ tr:nth-of-type(2n) {
   background-color: crimson !important;
   color: white !important;
 }
+
+/* Yellow warning row (e.g., delayed) */
+.row-warning {
+  background-color: #f1c40f !important; /* yellow */
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.row-warning td {
+  background-color: #f1c40f !important;
+  color: #000 !important;
+}
