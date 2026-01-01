@@ -117,6 +117,7 @@
 
          </table>
         </div>
+         <script>
         function fetchTableData() {
     fetch("http://127.0.0.1:5000/get_table")
         .then(response => response.json())
@@ -146,6 +147,7 @@
         })
         .catch(error => console.error("Error fetching table data:", error));
 }
+</script>
 <script>
 function updateDiversionRows() {
   const table = document.getElementById("diverttable");
