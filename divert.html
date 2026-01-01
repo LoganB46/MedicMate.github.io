@@ -141,6 +141,45 @@
         
             window.onload = fetchTableData;  // Fetch latest data when page loads
         </script>
+<script>
+function updateDiversionColors() {
+  const table = document.getElementById("diverttable");
+  if (!table || table.rows.length < 2) return;
+
+  // Determine which columns are status columns from the header
+  const headerCells = table.rows[0].cells;
+  const statusCols = [];
+  for (let c = 0; c < headerCells.length; c++) {
+    if (headerCells[c].hasAttribute("data-status")) statusCols.push(c);
+  }
+
+  // Apply coloring for each data row
+  for (let r = 1; r < table.rows.length; r++) {
+    const row = table.rows[r];
+
+    statusCols.forEach(c => {
+      const cell = row.cells[c];
+      if (!cell) return;
+
+      const value = cell.textContent.trim().toUpperCase();
+
+      cell.classList.remove("status-alert");
+
+      // Treat CLEAR and N/A as OK; everything else is alert
+      if (value !== "CLEAR" && value !== "N/A" && value !== "") {
+        cell.classList.add("status-alert");
+      }
+    });
+  }
+}
+
+// Run on load and after updates
+window.addEventListener("load", updateDiversionColors);
+
+// If your Flask fetch replaces table contents, call updateDiversionColors() after it runs too.
+// As a fallback, re-check periodically:
+setInterval(updateDiversionColors, 1000);
+</script>
         <script src="js/divert.js"></script>
 
     </body>
