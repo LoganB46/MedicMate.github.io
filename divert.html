@@ -49,6 +49,22 @@
                 </ul>
              </div>
             </div>
+           <table id="diverttable">
+  <thead>
+    <tr>
+      <th>Hospital</th>
+      <th data-status>Trauma</th>
+      <th data-status>ICU</th>
+      <th data-status>X-ray</th>
+      <th data-status>Cath-lab</th>
+      <th data-status>CT</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<!--
         <div class="table-container">    
             <table id="diverttable">
 
@@ -119,8 +135,8 @@
                 </tr>
 
          </table>
-        </div>
-         <script>
+        </div> -->
+        <!-- <script>
         function fetchTableData() {
     fetch("http://127.0.0.1:5000/get_table")
         .then(response => response.json())
@@ -204,7 +220,101 @@ function updateDiversionRows() {
 
 window.addEventListener("load", updateDiversionRows);
 setInterval(updateDiversionRows, 1000);
-</script>>
+</script> -->
+
+        <script>
+async function fetchHospitalData() {
+  const res = await fetch("data/hospitals.json", { cache: "no-store" });
+  if (!res.ok) throw new Error("Could not load data/hospitals.json");
+  return await res.json();
+}
+
+function buildTableRows(hospitals) {
+  const table = document.getElementById("diverttable");
+  const tbody = table.querySelector("tbody");
+  tbody.innerHTML = "";
+
+  hospitals.forEach(h => {
+    const tr = document.createElement("tr");
+
+    const cells = [
+      h.name,
+      h.trauma,
+      h.icu,
+      h.xray,
+      h.cathlab,
+      h.ct,
+      h.notes
+    ];
+
+    cells.forEach(value => {
+      const td = document.createElement("td");
+      td.textContent = value ?? "";
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+}
+
+function updateDiversionRows() {
+  const table = document.getElementById("diverttable");
+  if (!table) return;
+
+  const headerCells = table.querySelectorAll("thead th");
+  const statusCols = [];
+  let notesCol = -1;
+
+  headerCells.forEach((th, idx) => {
+    if (th.hasAttribute("data-status")) statusCols.push(idx);
+    if (th.textContent.trim().toUpperCase() === "NOTES") notesCol = idx;
+  });
+
+  const rows = table.querySelectorAll("tbody tr");
+
+  rows.forEach(row => {
+    const tds = row.querySelectorAll("td");
+
+    let hasAlert = false;
+    let hasDelayed = false;
+
+    // Red if any status col is not CLEAR/N/A
+    for (const c of statusCols) {
+      const value = (tds[c]?.textContent || "").trim().toUpperCase();
+      if (value !== "CLEAR" && value !== "N/A" && value !== "") {
+        hasAlert = true;
+        break;
+      }
+    }
+
+    // Yellow if notes contains "delayed" (only if not already red)
+    if (!hasAlert && notesCol !== -1) {
+      const notes = (tds[notesCol]?.textContent || "").toLowerCase();
+      if (notes.includes("delayed")) hasDelayed = true;
+    }
+
+    row.classList.remove("row-alert", "row-warning");
+    if (hasAlert) row.classList.add("row-alert");
+    else if (hasDelayed) row.classList.add("row-warning");
+  });
+}
+
+async function loadAndRender() {
+  try {
+    const data = await fetchHospitalData();
+    buildTableRows(data.hospitals || []);
+    updateDiversionRows();
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+window.addEventListener("load", loadAndRender);
+
+// Optional: auto-refresh (works, but note GitHub Pages caching can still apply sometimes)
+setInterval(loadAndRender, 30_000); // every 30 seconds
+</script>
+
         <script src="js/divert.js"></script>
 
     </body>
