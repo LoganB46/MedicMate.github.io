@@ -153,7 +153,7 @@ setInterval(updateDiversionRows, 1000);
 
         <script>
 async function fetchHospitalData() {
-  const res = await fetch("data/hospitals.json", { cache: "no-store" });
+  const res = await fetch("hospitals.json", { cache: "no-store" });
   if (!res.ok) throw new Error("Could not load data/hospitals.json");
   return await res.json();
 }
