@@ -1,0 +1,59 @@
+{
+  "lastUpdated": "2026-01-01T12:00:00-06:00",
+  "hospitals": [
+    {
+      "name": "Saraland Freestanding ED",
+      "trauma": "CLEAR",
+      "icu": "N/A",
+      "xray": "CLEAR",
+      "cathlab": "N/A",
+      "ct": "CLEAR",
+      "notes": ""
+    },
+    {
+      "name": "University Hospital",
+      "trauma": "TSO",
+      "icu": "CLEAR",
+      "xray": "CLEAR",
+      "cathlab": "N/A",
+      "ct": "CLEAR",
+      "notes": ""
+    },
+    {
+      "name": "University Hospital Freestanding ED",
+      "trauma": "CLEAR",
+      "icu": "N/A",
+      "xray": "CLEAR",
+      "cathlab": "CLEAR",
+      "ct": "CLEAR",
+      "notes": ""
+    },
+    {
+    "name": "Mobile Infirmary",
+      "trauma": "CLEAR",
+      "icu": "CLEAR",
+      "xray": "CLEAR",
+      "cathlab": "CLEAR",
+      "ct": "CLEAR",
+      "notes": ""
+     },
+    {
+      "name": "Springhill Hospital",
+      "trauma": "CLEAR",
+      "icu": "CLEAR",
+      "xray": "CLEAR",
+      "cathlab": "CLEAR",
+      "ct": "CLEAR",
+      "notes": "Multiple units delayed"
+     },
+     {
+      "name": "Providence",
+      "trauma": "CLEAR",
+      "icu": "CLEAR",
+      "xray": "CLEAR",
+      "cathlab": "CLEAR",
+      "ct": "CLEAR",
+      "notes": ""
+     },
+  ]
+}
