@@ -24,3 +24,11 @@ body {
     width:90% ;
     word-wrap: normal;
     }
+    .navbar-brand {
+  color: white !important;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar .nav-link {
+  font-family: "Lucida Console", "Courier New", monospace;
+}

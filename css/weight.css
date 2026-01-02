@@ -75,3 +75,11 @@ button:hover {
     font-size: 1.2em;
     color: #333;
 }
+    .navbar-brand {
+  color: white !important;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar .nav-link {
+  font-family: "Lucida Console", "Courier New", monospace;
+}

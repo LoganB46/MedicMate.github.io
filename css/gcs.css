@@ -38,3 +38,11 @@ button {
   font-size: 18px;
   color: red;
 }
+    .navbar-brand {
+  color: white !important;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar .nav-link {
+  font-family: "Lucida Console", "Courier New", monospace;
+}

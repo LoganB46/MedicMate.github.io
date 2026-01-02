@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Protocols</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/divert.css" rel="stylesheet" />
+  <script src="js/bootstrap.bundle.js"></script>
+
+  <style>
+    /* Small layout helpers to match your theme */
+    .protocols-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .protocols-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .index-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .index-list a {
+      display: block;
+      padding: 0.55rem 0.6rem;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .index-list a:hover {
+      border-color: #222;
+      background: #0b0b0b;
+    }
+    .viewer-wrap {
+      height: 80vh;
+      border: 1px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .viewer {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .navbar-brand {
+  color: white !important;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar .nav-link {
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <h1>Medic Mate</h1>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+    <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Home</a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNav"
+      aria-controls="mainNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="calculators.html">Calculators</a></li> -->
+        <!-- Optional dropdown for “Calculators” -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="calculatorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Calculators
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="calculatorsDropdown">
+            <li><a class="dropdown-item" href="burn.html">Burn Calculator</a></li>
+            <li><a class="dropdown-item" href="drugcalc.html">Drug Calculator</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="emsa.html">EMSA Score</a></li>
+            <li><a class="dropdown-item" href="gcs.html">GCS Calculator</a></li>
+            <li><a class="dropdown-item" href="weight.html">Ideal Body Weight Calculator</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="directory.html">Hospital Directory</a></li>
+        <li class="nav-item"><a class="nav-link" href="divert.html">Diversion</a></li>
+        <li class="nav-item"><a class="nav-link active" href="protocols.html">Protocols</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+
+    <div class="protocols-layout">
+      <!-- Index -->
+      <div class="panel">
+        <h3 style="margin-top:0;">Protocol Index</h3>
+        <p style="opacity:0.85; font-size:0.95rem;">
+          Tap an item to jump to that page in the PDF.
+        </p>
+
+        <div class="panel">
+  <h3 style="margin-top:0;">Protocol Index</h3>
+
+  <!-- Category buttons -->
+  <div class="btn-group w-100" role="group" aria-label="Protocol categories" style="gap: .5rem; flex-wrap: wrap;">
+    <button class="btn btn-outline-light" data-cat="acute">Acute Health Systems</button>
+    <button class="btn btn-outline-light" data-cat="treatment">Treatment Protocols</button>
+    <button class="btn btn-outline-light" data-cat="meds">Medications</button>
+    <button class="btn btn-outline-light" data-cat="refs">References</button>
+    <button class="btn btn-outline-light" data-cat="forms">Forms</button>
+    <button class="btn btn-outline-light" data-cat="tactical">Tactical Paramedic</button>
+  </div>
+
+  <hr style="border-color:#222;">
+
+  <!-- This list will be filled by JS depending on category -->
+  <ul class="index-list" id="protocolIndex"></ul>
+
+  <hr style="border-color:#222;">
+
+  <a class="btn btn-outline-light w-100" id="openPdfBtn" href="#" target="_blank" rel="noopener">
+    Open PDF in new tab
+  </a>
+
+  <div style="height:0.5rem;"></div>
+
+  <a class="btn btn-outline-light w-100" id="downloadPdfBtn" href="#" download>
+    Download PDF
+  </a>
+</div>
+
+
+        <hr style="border-color:#222;">
+
+        <a class="btn btn-outline-light w-100" href="state-protocols.pdf" target="_blank" rel="noopener">
+          Open PDF in new tab
+        </a>
+
+        <div style="height:0.5rem;"></div>
+
+        <a class="btn btn-outline-light w-100" href="state-protocols.pdf" download>
+          Download PDF
+        </a>
+      </div>
+
+      <!-- PDF.js Viewer -->
+      <div class="panel">
+        <h3 style="margin-top:0;">Viewer</h3>
+        <div class="viewer-wrap">
+          <iframe
+            id="pdfViewer"
+            class="viewer"
+            title="Protocols Viewer"
+            src=""
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Paths (root PDF + PDF.js viewer)
+    const PDF_FILE = "../../state-protocols.pdf";
+    const PDFJS_VIEWER = "pdfjs/web/viewer.html";
+
+    const viewer = document.getElementById("pdfViewer");
+const indexList = document.getElementById("protocolIndex");
+  const openPdfBtn = document.getElementById("openPdfBtn");
+  const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+
+  // Helper: PDF path must be relative to /pdfjs/web/viewer.html
+  // Root PDF = "../../<file>.pdf"
+  function pdfRoot(fileName) {
+    return `../../${fileName}`;
+  }
+
+  // ✅ Define your categories here
+  const CATEGORIES = {
+    acute: {
+      label: "Acute Health Systems",
+      pdf: pdfRoot("state-protocols.pdf"), // can be a different PDF later
+      items: [
+        { title: "Trauma System", page: 15 },
+        { title: "Stroke System", page: 18 }
+      ]
+    },
+    treatment: {
+      label: "Treatment Protocols",
+      pdf: pdfRoot("state-protocols.pdf"),
+      items: [
+        { title: "General Patient Care", page: 20 },
+        { title: "Abdominal Pain", page: 21 },
+        { title: "Adrenal Insufficiency", page: 23 },
+        { title: "Allergeic Reactions", page: 25 },
+        { title: "Altered Mental Status", page: 27},
+        { title: "Asthma / COPD", page: 29},
+        { title: "Bites and Envenomations", page: 31},
+        { title: "Cardiac Arrest - Adult", page: 33},
+        { title: "Cardiac Arrest - Pediatric", page: 35},
+        { title: "Cardiac Dysrhthmias - Adult Bradycardia", page: 38},
+        { title: "Cardiac Dysrhthmias - Adult Tachycardia w/Pulse", page: 40},
+        { title: "Cardiac Dysrhthmias - Pediatric", page: 42},
+        { title: "Chest Pain or Acute Coronary Syndrome (ACS)", page: 44},
+        { title: "Childbirth", page: 47},
+        { title: "Congestive Heart Failure", page: 49},
+        { title: "Croup or Upper Airway Obstruction", page: 51},
+        { title: "Decompression Sickness", page: 53},
+        { title: "Electromuscular Incapacitation Device (Taser)", page: 54},
+        { title: "Hemodialysis Emergency Disconnect", page: 55},
+        { title: "Hypertensive Emergencies", page: 57},
+        { title: "Hyperthermia", page: 58},
+        { title: "Hypoglycemia", page: 60},
+        { title: "Hypothermia", page: 62},
+        { title: "Influenza / Respiratory Illness", page: 64},
+        { title: "Nausea / Vomiting", page: 65},
+        { title: "Near Drowning", page: 67},
+        { title: "Newborn Care", page: 69},
+        { title: "Pain Management", page: 72},
+        { title: "Poisons and Overdoses", page: 74},
+        { title: "Post Intubation Sedation and CPR Consciousness", page: 77},
+        { title: "Usage Preeclampsia / Eclampsia", page: 79},
+        { title: "Seizures", page: 81},
+        { title: "Sepsis", page: 83},
+        { title: "Shock", page: 86},
+        { title: "Stroke", page: 89},
+        { title: "Syncope", page: 92},
+        { title: "Vaginal Bleeding", page: 94},
+        { title: "General Trauma", page: 96}
+      ]
+    },
+    meds: {
+      label: "Medications",
+      pdf: pdfRoot("state-protocols.pdf"),
+      items: [
+        { title: "Acetaminophen", page: 103},
+        { title: "Adenosine", page: 104},
+        { title: "Albuterol and Ipatropium", page: 105},
+        { title: "Amiodarne", page: 106},
+        { title: "Asprin", page: 108},
+        { title: "Atropine Sulfate", page: 109},
+        { title: "Calcium Gluconate", page: 111},
+        { title: "Calcium Chloride", page: 112},
+        { title: "Cardene", page: 113},
+        { title: "Cefazolin", page: 114},
+        { title: "Ceftriaxone", page: 115},
+        { title: "Cleviprex", page: 116},
+        { title: "Cyanokit", page: 117},
+        { title: "Dexamethasone", page: 118},
+        { title: "Dextrose 10%", page: 119},
+        { title: "Dextrose 25%", page: 119},
+        { title: "Dextrose 50%", page: 119},
+        { title: "Diazepam", page: 120},
+        { title: "Diltiazem", page: 121},
+        { title: "Diphenhydramine", page: 122},
+        { title: "Dobutamine", page: 123},
+        { title: "Dopamine", page: 124},
+        { title: "Epinephrine", page: 125},
+        { title: "Esmolol", page: 129},
+        { title: "Etomidate", page: 130},
+        { title: "Fentanyl", page: 131},
+        { title: "Furosemide", page: 133},
+        { title: "Glucagon", page: 134},
+        { title: "Haloperidol", page: 135},
+        { title: "Heparin", page: 136},
+        { title: "Hydralazine", page: 137},
+        { title: "Hydrocortisone", page: 138},
+        { title: "Hypertonic Saline 3%", page: 139},
+        { title: "Keppra", page: 140},
+        { title: "Ketamine", page: 141},
+        { title: "Labetalol", page: 143},
+        { title: "Lactated Ringers", page: 144},
+        { title: "Lidocaine", page: 145},
+        { title: "Lorazepam", page: 146},
+        { title: "Magnesium Sulfate", page: 147},
+        { title: "Mannitol", page: 149},
+        { title: "Metaclopramide", page: 150},
+        { title: "Methylprednisolone", page: 151},
+        { title: "Metoprolol", page: 152},
+        { title: "Midazolam", page: 153},
+        { title: "Morphine", page: 154},
+        { title: "Naloxone", page: 155},
+        { title: "Nitroglycerin", page: 156},
+        { title: "Nitroprusside", page: 158},
+        { title: "Norepinephrine", page: 159},
+        { title: "Ondansetron", page: 160},
+        { title: "Oral Glucose", page: 161},
+        { title: "Pavulon", page: 162},
+        { title: "Pepcid", page: 163},
+        { title: "Phenylephrine", page: 164},
+        { title: "Pitocin", page: 165},
+        { title: "Promethazine", page: 166},
+        { title: "Propofol", page: 167},
+        { title: "Racemic Epinephrine", page: 168},
+        { title: "Rocuronium", page: 169},
+        { title: "Sodium Bicarbonate", page: 170},
+        { title: "Sodium Chloride", page: 171},
+        { title: "Succinylcholine", page: 173},
+        { title: "Terbutaline", page: 174},
+        { title: "Thiamine", page: 175},
+        { title: "Toradol", page: 176},
+        { title: "Tranexamic Acid (TXA)", page: 177},
+        { title: "Vasopressin", page: 178},
+        { title: "Vecuronium Bromide", page: 179},
+        { title: "Vitamin K1", page: 180}
+      ]
+    },
+    refs: {
+      label: "References",
+      pdf: pdfRoot("state-protocols.pdf"),
+      items: [
+        { title: "Critical Care Guidelines", page: 181},
+        { title: "Rule of Nines", page: 194},
+        { title: "APGAR Scoring", page: 195},
+        { title: "Glascow Coma Scale", page: 196},
+        { title: "Oxygen Percentages", page: 197},
+        { title: "Lidocaine Clock", page: 198},
+        { title: "Dopamine Table", page: 199},
+        { title: "Ideal Body Weight", page: 200},
+        { title: "Search and Rescue Marking System", page: 201},
+        { title: "Triage of Mass Casualties", page: 202}
+      ]
+    },
+    forms: {
+      label: "Forms",
+      pdf: pdfRoot("state-protocols.pdf"),
+      items: [
+        { title: "Request to be Transported to a Hospital on Diversion", page: 204},
+        { title: "Thrombolytic Checklist (STEMI)", page: 205},
+        { title: "Thrombolytic Checklist (Stroke)", page: 206}
+      ]
+    },
+    tactical: {
+      label: "Tactical Paramedic",
+      pdf: pdfRoot("state-protocols.pdf"),
+      items: [
+        { title: "Surgical Cricothyroidotomy", page: 207},
+        { title: "Blood Transfusion Procedure", page: 208}
+      ]
+    }
+  };
+
+  let currentCategoryKey = "treatment";
+
+  function setViewer(pdfPath, page) {
+    const url = `${PDFJS_VIEWER}?file=${encodeURIComponent(pdfPath)}#page=${page}`;
+    viewer.src = url;
+  }
+
+  function renderIndex(catKey) {
+    const cat = CATEGORIES[catKey];
+    if (!cat) return;
+
+    currentCategoryKey = catKey;
+
+    // Update buttons
+    const openUrl = `${PDFJS_VIEWER}?file=${encodeURIComponent(cat.pdf)}`;
+    openPdfBtn.href = openUrl;          // opens the PDF.js viewer in a new tab
+    downloadPdfBtn.href = cat.pdf;      // downloads the actual PDF
+
+    // Build list
+    indexList.innerHTML = "";
+    cat.items.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = "#";
+      a.dataset.page = item.page;
+      a.textContent = item.title;
+      li.appendChild(a);
+      indexList.appendChild(li);
+    });
+
+    // Load first item by default
+    const firstPage = cat.items[0]?.page ?? 1;
+    setViewer(cat.pdf, firstPage);
+  }
+
+  // Index click -> jump pages
+  indexList.addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-page]");
+    if (!a) return;
+    e.preventDefault();
+
+    const cat = CATEGORIES[currentCategoryKey];
+    setViewer(cat.pdf, a.dataset.page);
+  });
+
+  // Category button clicks
+  document.querySelectorAll("button[data-cat]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      renderIndex(btn.dataset.cat);
+    });
+  });
+
+  // Initial load
+  renderIndex(currentCategoryKey);
+</script>
+</body>
+</html>
