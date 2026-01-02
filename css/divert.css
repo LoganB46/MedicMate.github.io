@@ -65,3 +65,19 @@ tr:nth-of-type(2n) {
   background-color: #f1c40f !important;
   color: #000 !important;
 }
+
+/* Crimson alert row */
+.row-alert,
+.row-alert td {
+  background-color: crimson !important;
+  color: white !important;
+  font-weight: 700;
+}
+
+/* Yellow delayed/warning row */
+.row-warning,
+.row-warning td {
+  background-color: #f1c40f !important;
+  color: #000 !important;
+  font-weight: 700;
+}
