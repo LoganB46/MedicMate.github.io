@@ -8,9 +8,411 @@
 <link href="css/divertgui.css" rel="stylesheet"/>
 </head>
 <body class="container mt-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+    <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">Home</a>
+
+    <!-- <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNav"
+      aria-controls="mainNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="calculators.html">Calculators</a></li> -->
+        <!-- Optional dropdown for “Calculators” -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="calculatorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Calculators
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="calculatorsDropdown">
+            <li><a class="dropdown-item" href="burn.html">Burn Calculator</a></li>
+            <li><a class="dropdown-item" href="drugcalc.html">Drug Calculator</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="emsa.html">EMSA Score</a></li>
+            <li><a class="dropdown-item" href="gcs.html">GCS Calculator</a></li>
+            <li><a class="dropdown-item" href="weight.html">Ideal Body Weight Calculator</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="directory.html">Hospital Directory</a></li>
+        <li class="nav-item"><a class="nav-link" href="divert.html">Diversion</a></li>
+        <li class="nav-item"><a class="nav-link " href="protocols.html">Protocols</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" id="logoutLink">Logout</a></li>
+
+        
+        </ul>
+        </div>
+    </div>
+    </nav>
 
     <h1> Hospital Diversion</h1>
-    <button class="btn btn-primary mb-3" onclick="loadTable()">Load Table</button>
+
+    <table id="adminTable">
+        <thead>
+            <tr>
+                <td>Update Time</td>
+                <td>
+                    <form>
+                        <input type="datetime-local" id="updateTime">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>Hospital</th>
+                <th data-status>Trauma</th>
+                <th data-status>ICU</th>
+                <th data-status>X-ray</th>
+                <th data-status>Cath-lab</th>
+                <th data-status>CT</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+               <td>SFD</td>
+               <td>
+                <form>
+                    <select id="traumaStatus">
+                        <option value="Available">Available</option>
+                        <option value="On Diversion">On Diversion</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </form>
+               </td>
+                <td>
+                 <form>
+                      <select id="icuStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="xrayStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="cathlabStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="ctStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="text" id="notesInput" placeholder="Enter notes here">
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td>USAMC</td>
+                <td>
+                <form>
+                    <select id="traumaStatus">
+                        <option value="Available">Available</option>
+                        <option value="On Diversion">On Diversion</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </form>
+               </td>
+                <td>
+                 <form>
+                      <select id="icuStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="xrayStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="cathlabStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="ctStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="text" id="notesInput" placeholder="Enter notes here">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>USA FED</td>
+                <td>
+                <form>
+                    <select id="traumaStatus">
+                        <option value="Available">Available</option>
+                        <option value="On Diversion">On Diversion</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </form>
+               </td>
+                <td>
+                 <form>
+                      <select id="icuStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="xrayStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="cathlabStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="ctStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="text" id="notesInput" placeholder="Enter notes here">
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td>MIMC</td>
+                <td>
+                <form>
+                    <select id="traumaStatus">
+                        <option value="Available">Available</option>
+                        <option value="On Diversion">On Diversion</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </form>
+               </td>
+                <td>
+                 <form>
+                      <select id="icuStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="xrayStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="cathlabStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="ctStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="text" id="notesInput" placeholder="Enter notes here">
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td>SHM</td>
+                <td>
+                <form>
+                    <select id="traumaStatus">
+                        <option value="Available">Available</option>
+                        <option value="On Diversion">On Diversion</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </form>
+               </td>
+                <td>
+                 <form>
+                      <select id="icuStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="xrayStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="cathlabStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="ctStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="text" id="notesInput" placeholder="Enter notes here">
+                    </form>
+                </td>
+            </tr>
+
+            <tr>
+                <td>PROV</td>
+                <td>
+                <form>
+                    <select id="traumaStatus">
+                        <option value="Available">Available</option>
+                        <option value="On Diversion">On Diversion</option>
+                        <option value="Unavailable">Unavailable</option>
+                    </select>
+                </form>
+               </td>
+                <td>
+                 <form>
+                      <select id="icuStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="xrayStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="cathlabStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                 <form>
+                      <select id="ctStatus">
+                            <option value="Available">Available</option>
+                            <option value="On Diversion">On Diversion</option>
+                            <option value="Unavailable">Unavailable</option>
+                      </select>
+                 </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="text" id="notesInput" placeholder="Enter notes here">
+                    </form>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be populated here -->
+        </tbody>
+    </table>
+    <button id="saveButton" class="btn btn-primary mt-3">Save Changes</button>
+    </body>
+    
+    <footer style="color:crimson">
+        <p> &#128681; Webpage is not currently functional and does not update the Diversion page at this time &#128681;</p>
+
+        </footer>
+
+
+    <!--   Old Admin Edit System (Broken)-->
+    <!--<button class="btn btn-primary mb-3" onclick="loadTable()">Load Table</button>
     
     <div class="table-responsive">
         <table class="table table-bordered" id="editable-table">
@@ -128,9 +530,21 @@
     })
     .catch(error => console.error("Error updating table:", error));
 }
+</script> -->
+<script src="js/auth.js"></script>
+<script>MedicMateAuth.requireAuth();
 
-       
-    </script>
+</script>
 
-</body>
+<script src="js/auth.js"></script>
+<script>
+  const logoutLink = document.getElementById("logoutLink");
+  if (logoutLink) {
+    logoutLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      MedicMateAuth.logout();
+      location.href = "divert.html";
+    });
+  }
+</script>
 </html>

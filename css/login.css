@@ -1,0 +1,30 @@
+body {background-color: black;}
+#header {color: rgb(22, 5, 182);
+    border: 1px solid rgb(255, 255, 255);
+    padding-left: 5px;
+    margin: 5px;
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;}
+    .login-wrap {
+      min-height: calc(100vh - 56px);
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+    }
+    .login-card {
+      width: min(420px, 100%);
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .brand {
+      color: rgb(225, 255, 255);
+      font-family: "Lucida Console", "Courier New", monospace;
+      margin-bottom: 0.25rem;
+    }
+    .muted {
+      color: gray;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
