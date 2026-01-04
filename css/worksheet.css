@@ -1,0 +1,130 @@
+/* worksheet.css - matches your dark Medic Mate theme */
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.page-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.page-meta {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.panel-card {
+  background: gainsboro;
+  border: 1px solid #222;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.panel-header {
+  background: dimgray;
+  border-bottom: 1px solid #222;
+  font-weight: 700;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  color: black;
+}
+
+.form-label {
+  font-weight: 700;
+  color: black;
+}
+
+.form-control,
+.form-select {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 1px solid #000ba3;
+  border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+}
+
+.small-note {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.footer-note {
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin: 1rem 0 2rem;
+}
+
+/* Print styling */
+@media print {
+  /* Hide nav and buttons when printing */
+  .no-print,
+  nav {
+    display: none !important;
+  }
+
+  /* Try hard to keep most cards from splitting across pages */
+  .panel-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Allow narrative to break across pages if needed */
+  .panel-card.allow-break {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Make the textarea print like normal text and expand */
+  textarea {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* Help the narrative print fully (some browsers) */
+  #narrative {
+    white-space: pre-wrap;
+  }
+
+  /* Optional: reduce spacing so it’s more likely to fit on 1 page */
+  .panel-card .card-body {
+    padding: 0.6rem 0.8rem !important;
+  }
+
+  .panel-header {
+    padding: 0.5rem 0.8rem !important;
+  }
+
+  .page-title {
+    font-size: 1.4rem !important;
+  }
+
+  .page-meta {
+    font-size: 0.9rem !important;
+  }
+}

@@ -1,0 +1,68 @@
+[[2026-01-03]
+Notes:Commit to Git Repository
+Ideas:
+[ ] Add a day/night mode toggle
+[ ] Fix issues with burn calculator not highlighting image properly when clicking on it.
+[ ] Add medication library tied to drug dose calculator
+[ ] Add a company calender to the home page that would show upcoming training sessions, meetings, and other important dates for the EMS service.
+[ ] Add area for company specific logos and branding to the home page and other pages.
+[ ] Change user login system to allow for multiple users with different access levels (e.g., admin, medic, dispatcher).
+[ ] In reference to the item above, add user management page for admin users to add/remove users and change their access levels.
+[ ] In addition to the login system overhaul, set other pages to be accessible only to logged in users: divertgui, hospital directory, call worksheet, company calendar.
+[ ] Revamp the hospital phone directory look.
+[ ] Give EMSA page a new cleaner look.
+[ ] Fix Navbar in weight.html page.
+[ ] Clean up Navar look in all pages.
+TODO:
+[√] Add Call Worksheet page: A mini ePCR that would allow users to fill out basic patient information, chief complaint, vitals, and interventions performed on the patient. This would then generate a printable PDF that could be attached to the patient's chart.
+
+
+
+Activity Log:
+[ ] Added drug dose calculator to drugcalc.html and css/drugcalc.css
+[ ] Added functionality to new calculator in drugcalc.js
+[ ] Added a clean GUI into the divergui.html, BACKEND DOES NOT FUNCTION!!!!
+[ ] Added simple login on divert.html that will take users to login.html
+[ ] Added basic styling to login.html and login.css
+[ ] Added simple validation to login.js, but not fully secure at this time, it is just a place holder for show.
+[ ] Successful login will take user to divergui.html
+[ ] Added disclaimer to about.html and about.css
+[ ] Added Features section to about.html and about.css
+[ ] Added Known Issues section to about.html and about.css
+[ ] Added Call Worksheet page: worksheet.html and css/worksheet.css
+[ ] Added functionality to save and generate PDF in worksheet.js
+[ ] Added New Worksheet button to navebar in all html files.
+
+]
+
+Checklist: Html Files Modified:
+[√] about.html
+[√] burn.html
+[√] directory.html
+[√] divert.html
+[√] divertgui.html
+[√] drugcalc.html
+[√] emsa.html
+[√] gcs.html
+[√] index.html
+[√] protocols.html
+[√] weight.html
+[√] worksheet.html
+
+[2026-01-04]
+Notes:
+Ideas:
+[ ] Add a day/night mode toggle
+[ ] Fix issues with burn calculator not highlighting image properly when clicking on it.
+[ ] Add medication library tied to drug dose calculator
+[ ] Add a company calender to the home page that would show upcoming training sessions, meetings, and other important dates for the EMS service.
+[ ] Add area for company specific logos and branding to the home page and other pages.
+[ ] Change user login system to allow for multiple users with different access levels (e.g., admin, medic, dispatcher).
+[ ] In reference to the item above, add user management page for admin users to add/remove users and change their access levels.
+[ ] In addition to the login system overhaul, set other pages to be accessible only to logged in users: divertgui, hospital directory, call worksheet, company calendar.
+[ ] Revamp the hospital phone directory look.
+[ ] Give EMSA page a new cleaner look.
+[ ] Fix Navbar in weight.html page.
+[ ] Clean up Navar look in all pages.
+TODO:
+Activity Log:

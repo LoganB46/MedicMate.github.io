@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Call Worksheet</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/worksheet.css" rel="stylesheet" />
+  <script src="js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+  <!-- Navbar (matches your new style; tweak links as needed) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Medic Mate</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="calculatorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Calculators
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="calculatorsDropdown">
+              <li><a class="dropdown-item" href="burn.html">Burn Calculator</a></li>
+              <li><a class="dropdown-item" href="drugcalc.html">Drug Calculator</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="emsa.html">EMSA Score</a></li>
+              <li><a class="dropdown-item" href="gcs.html">GCS Calculator</a></li>
+              <li><a class="dropdown-item" href="weight.html">Ideal Body Weight Calculator</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="directory.html">Hospital Directory</a></li>
+          <li class="nav-item"><a class="nav-link" href="divert.html">Diversion</a></li>
+          <li class="nav-item"><a class="nav-link" href="protocols.html">Protocols</a></li>
+          <li class="nav-item"><a class="nav-link active" href="worksheet.html">Call Worksheet</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Call Worksheet</h1>
+        <div class="page-meta">
+          <span><strong>Created:</strong> <span id="createdAtText">—</span></span>
+          <span class="mx-2">•</span>
+          <span><strong>Last saved:</strong> <span id="lastSavedText">—</span></span>
+        </div>
+      </div>
+
+      <div class="actions no-print">
+        <button class="btn btn-outline-light" id="btnNew">New</button>
+        <button class="btn btn-outline-light" id="btnClearSaved">Clear Saved</button>
+        <button class="btn btn-primary" id="btnPrint">Print / Save PDF</button>
+        <button class="btn btn-success" id="btnJson">Download JSON</button>
+      </div>
+    </div>
+
+    <div id="statusMsg" class="alert alert-info d-none no-print"></div>
+
+    <!-- Patient Demographics -->
+    <section class="card panel-card">
+      <div class="card-header panel-header">
+        Patient Demographics
+      </div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label" for="patientAge">Age</label>
+            <input class="form-control" type="number" id="patientAge" min="0" placeholder="e.g., 54" />
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label" for="patientSex">Sex</label>
+            <select class="form-select" id="patientSex">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+              <option>Unknown</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label" for="callLocation">Location of Call</label>
+            <input class="form-control" type="text" id="callLocation" placeholder="Address / landmark / intersection" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chief Complaint -->
+    <section class="card panel-card">
+      <div class="card-header panel-header">
+        Chief Complaint
+      </div>
+      <div class="card-body">
+        <textarea class="form-control" id="chiefComplaint" rows="3" placeholder="Brief chief complaint..."></textarea>
+      </div>
+    </section>
+
+    <!-- Initial Vitals -->
+    <section class="card panel-card">
+      <div class="card-header panel-header">
+        Initial Vitals
+      </div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label" for="hr">Heart Rate (bpm)</label>
+            <input class="form-control" type="number" id="hr" min="0" placeholder="e.g., 110" />
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label" for="bp">Blood Pressure (SYS/DIA)</label>
+            <input class="form-control" type="text" id="bp" placeholder="e.g., 140/90" />
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label" for="spo2">Oxygen Saturation (%)</label>
+            <input class="form-control" type="number" id="spo2" min="0" max="100" placeholder="e.g., 92" />
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label" for="bgl">Blood Glucose (mg/dL)</label>
+            <input class="form-control" type="number" id="bgl" min="0" placeholder="e.g., 58" />
+          </div>
+        </div>
+        <div class="small-note mt-2">
+          Tip: Keep this worksheet non-identifying if you’re staying “GitHub safe.”
+        </div>
+      </div>
+    </section>
+
+    <!-- Interventions -->
+    <section class="card panel-card">
+      <div class="card-header panel-header">
+        Interventions
+      </div>
+      <div class="card-body">
+        <textarea class="form-control" id="interventions" rows="4" placeholder="O2, IV/IO, meds, procedures, etc."></textarea>
+      </div>
+    </section>
+
+    <!-- Narrative Summary -->
+    <section class="card panel-card">
+      <section class="card panel-card allow-break">
+  <div class="card-header panel-header">
+    Narrative Summary
+  </div>
+  <div class="card-body">
+    <textarea class="form-control" id="narrative" rows="6" placeholder="Short narrative summary..."></textarea>
+  </div>
+</section>
+
+      
+    </section>
+
+    <!-- Destination -->
+    <section class="card panel-card">
+      <div class="card-header panel-header">
+        Hospital Destination
+      </div>
+      <div class="card-body">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-8">
+            <label class="form-label" for="destination">Destination Hospital</label>
+            <input class="form-control" type="text" id="destination" placeholder="e.g., Mobile Infirmary" />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="destinationNotes">Destination Notes</label>
+            <input class="form-control" type="text" id="destinationNotes" placeholder="e.g., Trauma alert, ETA 12" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <div>
+        Autosaves locally in your browser. Use <strong>Download JSON</strong> for a portable copy.
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/worksheet.js"></script>
+</body>
+</html>

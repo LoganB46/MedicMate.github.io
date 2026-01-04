@@ -2,7 +2,7 @@
  <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scare=1">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
         <title>Medication Calculator</title>
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/drugcalc.css" rel="stylesheet"/>
@@ -57,7 +57,8 @@
         </li>
         <li class="nav-item"><a class="nav-link" href="directory.html">Hospital Directory</a></li>
         <li class="nav-item"><a class="nav-link" href="divert.html">Diversion</a></li>
-        <li class="nav-item"><a class="nav-link " href="protocols.html">Protocols</a></li>
+        <li class="nav-item"><a class="nav-link" href="protocols.html">Protocols</a></li>
+        <li class="nav-item"><a class="nav-link" href="worksheet.html">Call Worksheet</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         
         </ul>
@@ -67,24 +68,45 @@
     </head>
 
     <body>
-        <div id="dripcalc">
-        <div class="container">
-            <h1>Medication Drip Rate Calculator</h1>
-            <form id="dripRateForm">
-                <label for="volume">Volume to be infused (ml):</label>
-                <input type="number" id="volume" name="volume" required>
+      <div class="container mt-4">
+        <div class="row g-4 justify-content-center">
+          <div class ="col-md-6 col-lg-5">
+            <div id="dripcalc">
+              <h1>Medication Drip Rate Calculator</h1>
+                <form id="dripRateForm">
+                  <label for="volume">Volume to be infused (ml):</label>
+                  <input type="number" id="volume" name="volume" required>
                 
-                <label for="time">Time (minutes):</label>
-                <input type="number" id="time" name="time" required>
+                  <label for="time">Time (minutes):</label>
+                  <input type="number" id="time" name="time" required>
                 
-                <label for="dropFactor">Drop Factor (gtts/ml):</label>
-                <input type="number" id="dropFactor" name="dropFactor" required>
+                  <label for="dropFactor">Drop Factor (gtts/ml):</label>
+                  <input type="number" id="dropFactor" name="dropFactor" required>
                 
-                <button type="button" onclick="calculateDripRate()">Calculate</button>
-            </form>
+                  <button type="button" onclick="calculateDripRate()">Calculate</button>
+                </form>
             <div id="result"></div>
+          </div>
         </div>
-        <script src="js/drugcalc.js"></script>
+      
+
+        <div class="col-md-6 col-lg-5">
+          <div id="dosecalc">
+            <h1>Medication Dose Calculator</h1>
+            <form id="doseForm">
+              <label for="weight">Patient Weight (kg):</label>
+              <input type="number" id="weight" name="weight" required>
+                
+              <label for="dosePerKg">Dose per kg (mg/kg):</label>
+              <input type="number" id="dosePerKg" name="dosePerKg" required>
+                
+              <button type="button" onclick="calculateDose()">Calculate</button>
+            </form>
+            <div id="doseResult"></div>
+          </div>
         </div>
+      </div>
+
+    <script src="js/drugcalc.js"></script>
     </body>
     </html>
