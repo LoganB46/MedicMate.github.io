@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Events Calendar</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/events.css" rel="stylesheet" />
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/events.js" defer></script>
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <main class="container my-4">
+    <div class="panel">
+      <div class="calendar-header">
+        <div>
+          <h1 class="calendar-title">Classes & Events Calendar</h1>
+          <div class="subtle">
+            Month view • Last updated: <span id="lastUpdated">—</span>
+          </div>
+        </div>
+
+        <div class="controls no-print">
+          <button class="btn btn-outline-light" id="btnPrev">◀ Prev</button>
+          <button class="btn btn-outline-light" id="btnToday">Today</button>
+          <button class="btn btn-outline-light" id="btnNext">Next ▶</button>
+
+          <select class="form-select" id="monthSelect" style="min-width: 200px;"></select>
+
+          <button class="btn btn-primary" id="btnPrint">Print / Save PDF</button>
+        </div>
+      </div>
+
+      <div class="grid" id="dowRow"></div>
+      <div class="grid mt-2" id="monthGrid"></div>
+    </div>
+  </main>
+
+  <!-- Modal for event details -->
+  <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Event</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalWhen" class="mb-2"></div>
+          <div id="modalWhere" class="mb-2"></div>
+          <div id="modalType" class="mb-2"></div>
+          <div id="modalDesc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/include.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+body {
+      background: #000;
+      color: #fff;
+      font-family: "Lucida Console", "Courier New", monospace;
+    }
+
+    .panel {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+
+    .calendar-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .calendar-title {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .subtle {
+      opacity: .85;
+      font-size: .9rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .form-control, .form-select, .btn {
+      border-radius: 12px;
+    }
+
+    /* Month grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: .6rem;
+    }
+
+    .dow {
+      text-align: center;
+      font-weight: 800;
+      background: #0b0b0b;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: .45rem .25rem;
+      font-size: .9rem;
+    }
+
+    .day {
+      background: #0b0b0b;
+      border: 1px solid #222;
+      border-radius: 12px;
+      min-height: 120px;
+      padding: .5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      overflow: hidden;
+    }
+
+    .day.muted {
+      opacity: .45;
+    }
+
+    .daynum {
+      font-weight: 800;
+      font-size: .95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .today-badge {
+      font-size: .75rem;
+      padding: .1rem .45rem;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      background: rgba(59,130,246,.12);
+      color: #3b82f6;
+    }
+
+    .events {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .ev {
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: .35rem .45rem;
+      background: #101010;
+      font-size: .82rem;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+
+    .ev .ev-title {
+      font-weight: 800;
+      margin-bottom: .15rem;
+    }
+
+    .ev .ev-meta {
+      opacity: .85;
+      font-size: .78rem;
+    }
+
+    /* Type color tags */
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      padding: .1rem .4rem;
+      border-radius: 999px;
+      border: 1px solid #222;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+    .tag-training { background: rgba(20,184,166,.15); color: #14b8a6; }
+    .tag-meeting  { background: rgba(59,130,246,.15); color: #3b82f6; }
+    .tag-drill    { background: rgba(245,158,11,.15); color: #f59e0b; }
+    .tag-class    { background: rgba(168,85,247,.15); color: #a855f7; }
+    .tag-default  { background: #1f2937; color: #9ca3af; }
+
+    /* Mobile: month grid becomes compact but still 7 columns */
+    @media (max-width: 720px) {
+      .day { min-height: 95px; }
+      .ev .ev-meta { display: none; } /* keep it readable */
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff !important; color: #000 !important; font-family: Arial, sans-serif !important; }
+      nav, .no-print { display: none !important; }
+      .panel { background: #fff !important; border: none !important; padding: 0 !important; }
+      .dow { background: #f2f2f2 !important; border: 1px solid #bbb !important; }
+      .day { background: #fff !important; border: 1px solid #bbb !important; min-height: 115px; }
+      .day.muted { opacity: .55 !important; }
+      .ev { background: #fff !important; border: 1px solid #ccc !important; }
+      .tag { border-color: #999 !important; }
+      .tag-training, .tag-meeting, .tag-drill, .tag-class, .tag-default { color: #000 !important; background: #eaeaea !important; }
+      .today-badge { border-color: #999 !important; background: #eaeaea !important; color: #000 !important; }
+    }
+    .ev-actions {
+  margin-top: .25rem;
+}
+
+.ev-signup {
+  display: inline-block;
+  padding: .15rem .5rem;
+  border: 1px solid #222;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: .78rem;
+}
+
+.ev-signup:hover {
+  opacity: .85;
+}
+@media print {
+  .ev-actions { display: none !important; }
+}

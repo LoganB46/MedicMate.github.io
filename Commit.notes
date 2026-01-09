@@ -67,3 +67,50 @@ Ideas:
 TODO:
 Activity Log:
 [√] Added Favicon to all html pages.
+
+[2026-01-08]
+Notes:
+- Will be adding a simple calendar/ events list that pulls from event.json file. At a later time I will make it pull from a database. As well as adding a full calendar view page.
+Ideas:
+[ ] Add a door code page for facilities that have them: hospital, nursing homes, assisted living, etc. Pulled from a JSON file.
+[ ] Add Company Profile.JSON: Agnecy name, logo, color theme, and phone numbers.
+
+
+TODO:
+[√] Add calendar functionality index.html to show upcoming events on home page.
+[√] Create events.html page to show full list of upcoming events.
+[ ] Redesign hospital directory page for better usability.
+[√] Make a link on the event cards to allow users to sign up for events.
+[√] Update navbar in all pages to have "more" dropdown to hold additional pages like events.html, about.html, directory.html
+
+
+
+Activity Log:
+[ ] Created events.html
+[ ] Created js/index.js to handle loading events from events.json and index.html
+[ ] Created events.json to hold event data.
+[ ] Added event loading functionality to js/index.js
+[ ] Styled events.html and added event cards to display event information.
+[ ] Updated navbar to have a dropdown for additional pages.
+[ ] Pages added to dropdown: events.html, about.html, directory.html
+[ ] Added "Last updated" timestamp to the footer of the protocols.html, stating the last time to protocol pdf was downloaded from the state EMS website.
+[ ] Added events.js and events.css to handle event page functionality and styling.
+[ ] Created Navbar.html.
+[ ] Created include.js to handle loading navbar.html into all pages.
+[ ] Updated all html files to remove old navbar code and use the new include.js method to load navbar.html
+[ ] Added placeholder.html to use with future pages that are not yet built.
+
+Checklist: Html Files Modified with new navbar setup:
+[√] events.html
+[√] index.html
+[√] about.html
+[√] burn.html
+[√] directory.html
+[√] divert.html
+[√] divertgui.html
+[√] drugcalc.html
+[√] emsa.html
+[√] gcs.html
+[√] protocols.html
+[√] weight.html
+[√] worksheet.html

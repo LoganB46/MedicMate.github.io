@@ -9,6 +9,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/index.css" rel="stylesheet"/>
         <script src="js/bootstrap.bundle.js"></script>
+        <script src="js/index.js" defer></script>
     </head>
 
     <body>
@@ -24,53 +25,33 @@
                 </div>
         </header>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
-    <div class="container">
-    <a class="navbar-brand fw-bold" href="index.html">Home</a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#mainNav"
-      aria-controls="mainNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <div id="navbar"></div>
 
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="calculators.html">Calculators</a></li> -->
-        <!-- Optional dropdown for “Calculators” -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="calculatorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Calculators
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="calculatorsDropdown">
-            <li><a class="dropdown-item" href="burn.html">Burn Calculator</a></li>
-            <li><a class="dropdown-item" href="drugcalc.html">Drug Calculator</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="emsa.html">EMSA Score</a></li>
-            <li><a class="dropdown-item" href="gcs.html">GCS Calculator</a></li>
-            <li><a class="dropdown-item" href="weight.html">Ideal Body Weight Calculator</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="directory.html">Hospital Directory</a></li>
-        <li class="nav-item"><a class="nav-link" href="divert.html">Diversion</a></li>
-        <li class="nav-item"><a class="nav-link" href="protocols.html">Protocols</a></li>
-        <li class="nav-item"><a class="nav-link" href="worksheet.html">Call Worksheet</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        
-        </ul>
-        </div>
-    </div>
-    </nav>
         
     <div id="p1">
         Welcome to Medic Mate, this webstie is still under development and may contain bugs.
         <!-- Edit font, location, and text color in index css file -->
     </div>
+
+    <div class="container my-4">
+  <div class="card bg-dark text-white border-secondary">
+    <div class="card-body">
+      <h2 class="h4">Upcoming Classes & Events</h2>
+      <p class="mb-3" style="opacity:0.85;">
+        Training, meetings, and department events.
+      </p>
+
+      <div id="eventsList" class="events-grid"></div>
+
+      <div class="small text-muted mt-3">
+        Last updated: <span id="eventsUpdated">—</span>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-outline-light mt-3" href="events.html">View full calendar</a>
+
+<script src="js/include.js"></script>
+
     </body>

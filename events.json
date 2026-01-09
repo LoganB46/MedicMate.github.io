@@ -1,0 +1,50 @@
+{
+  "lastUpdated": "2026-01-05T18:00:00-06:00",
+  "events": [
+    {
+      "title": "CPR Recertification",
+      "date": "2026-01-12",
+      "time": "18:00",
+      "location": "Station Training Room",
+      "type": "Training",
+      "description": "AHA BLS CPR recertification for all providers.",
+      "signup": "http://127.0.0.1:5501/placeholder.html"
+    },
+    {
+      "title": "EVOC",
+      "date": "2026-01-18",
+      "time": "09:00",
+      "location": "MGM Highschool Parking Lot",
+      "type": "Class",
+      "description": "Emergency Vehicle Operations Course.",
+      "signup": "placeholder.html"
+    },
+    {
+      "title": "Monthly Staff Meeting",
+      "date": "2026-01-25",
+      "time": "19:00",
+      "location": "Station Conference Room",
+      "type": "Meeting",
+      "description": "Updates, policy changes, and Q&A.",
+      "signup": "placeholder.html"
+    },
+    {
+      "title": "In Service Training: New MedicMate App Features",
+      "date": "2026-01-30",
+      "time": "09:00",
+      "location": "Station Training Room",
+      "type": "In Service Training",
+      "description": "Focused training on pediatric emergency care protocols.",
+      "signup": "placeholder.html"
+    },
+    {
+      "title": "Stop The Bleed Course",
+      "date": "2026-01-15",
+      "time": "11:00",
+      "location": "Community Center",
+      "type": "Special Event",
+      "description": "Stop the Bleed course for community members. 3 instructors needed.",
+      "signup": "placeholder.html"
+    }
+  ]
+}
