@@ -114,3 +114,19 @@ Checklist: Html Files Modified with new navbar setup:
 [√] protocols.html
 [√] weight.html
 [√] worksheet.html
+
+[2026-01-09]
+Notes:
+Ideas:
+[ ] Add hyperlinks to facility locations that will open up a route in the users gps app.
+TODO:
+
+Activity Log:
+[ ] Redesigned hospital directory page for better usability.
+[ ] Created js/directory.js to handle loading facility data from facilities.json and directory.html
+[ ] Created facilities.json to hold facility data.
+[ ] Added facility loading functionality to js/directory.js
+[ ] Styled directory.html and added facility cards to display facility information.
+[ ] Changed the links in the event cards to open a placeholder page when the sign up link is clicked.
+
+

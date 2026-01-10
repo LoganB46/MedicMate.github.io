@@ -1,0 +1,54 @@
+{
+  "lastUpdated": "2026-01-09T00:00:00-06:00",
+  "hospitalFacilities": [
+    {
+      "name": "Mobile Infirmary",
+      "location": "5 Infirmary Cir, Mobile, AL",
+      "contact": "(555) 123-4567",
+      "type": "Hospital",
+      "doorAccess": "1234"
+    },
+    {
+      "name": "University Hospital",
+      "location": "2451 University Dr, Mobile, AL",
+      "contact": "(555) 222-3333",
+      "type": "Hospital",
+      "doorAccess": "1234"
+    },
+    {
+      "name": "Saraland Freestanding ED",
+      "location": "95 Shell St, Saraland, AL",
+      "contact": "(555) 555-1212",
+      "type": "FED",
+      "doorAccess": "1234"
+    },
+    {
+      "name": "USA Children's & Womens Hospital - Pediatric ED",
+      "location": "1700 Center St, Mobile, AL",
+      "contact": "(555) 333-4444",
+      "type": "Pediatric",
+      "doorAccess": "1234"
+    },
+    {
+      "name": "USA Childrens & Womens Hospital - OB ED",
+      "location": "1700 Center St, Mobile, AL",
+      "contact": "(555) 333-5555", 
+      "type": "OB",
+      "doorAccess": "1234"
+    },
+    {
+      "name": "SpringHill Medical Center",
+      "location": "3719 Dauphin St, Mobile, AL",
+      "contact": "(555) 666-7777",
+      "type": "Hospital",
+      "doorAccess": "1234"
+    },
+    {
+      "name": "Providence Hospital",
+      "location": "6801 Airport Blvd, Mobile, AL",
+      "contact": "(555) 888-9999",
+      "type": "Hospital",
+      "doorAccess": "1234"
+    } 
+  ]
+}

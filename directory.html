@@ -9,6 +9,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet"/>
         <link href="css/directory.css" rel="stylesheet"/>
         <script src="js/bootstrap.bundle.js"></script>
+        <script src="js/directory.js"></script>
     </head>
 
     <body>
@@ -25,74 +26,24 @@
         </header>
         </div>
     <div id="navbar"></div>
+    <div class="container my-4">
+        <div class="card bg-dark text-white border-secondary">
+            <div class="card-body">
+                <h2 class="h4">Directory</h2>
+                <p class="mb-3" style="opacity:0.85;">
+                    Contact information for staff and departments.
+                </p>
 
-        <div class="table-container">    
-            <table id="directory">
-               <caption>
-                    
-                </caption>
+                <div id="facilityList" class="facility-grid"></div>
 
-                <tr>
-    <!--Top row,for labeling-->
-                    <th></th> <!--Blank-->
-                    <th></th> <!--Abnormal (checkbox colum)-->
-                </tr>
-    <!--Table rows below-->
-                <tr>
-                    <td>TCC</td>
-                    <td>1-800-123-4567</td>
-                </tr>
-                <tr>
-                    <td>Alabama Poison Control</td>
-                    <td>1-800-123-4567</td>
-                </tr>
-                <tr>
-                    <td>
-                        <h5>Main Office</h5></td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>Dispatch</td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>Infirmery</td>
-                    <td>111-222-3344</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>Infirmary Freestanding ER</td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>Medical Center</td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>University Freestanding ED</td>
-                    <td>111-222-3344</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>University Hospital</td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>Childrens Hospital</td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
-                <tr>
-                    <td>Not Baptist Hospital</td>
-                    <td>111-222-3333</td>
-                    <td>Address</td>
-                </tr>
+                <div class="small text-muted mt-3">
+                Last updated: <span id="facilityUpdated">—</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        
 
-</div>
-<script src="js/include.js"></script>
+        <script src="js/include.js"></script>
     </body>
+</html>

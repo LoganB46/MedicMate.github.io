@@ -8,7 +8,7 @@
       "location": "Station Training Room",
       "type": "Training",
       "description": "AHA BLS CPR recertification for all providers.",
-      "signup": "http://127.0.0.1:5501/placeholder.html"
+      "signup": "https://loganb46.github.io/MedicMate.github.io/placeholder.html"
     },
     {
       "title": "EVOC",
@@ -17,7 +17,7 @@
       "location": "MGM Highschool Parking Lot",
       "type": "Class",
       "description": "Emergency Vehicle Operations Course.",
-      "signup": "placeholder.html"
+      "signup": "https://loganb46.github.io/MedicMate.github.io/placeholder.html"
     },
     {
       "title": "Monthly Staff Meeting",
@@ -26,7 +26,7 @@
       "location": "Station Conference Room",
       "type": "Meeting",
       "description": "Updates, policy changes, and Q&A.",
-      "signup": "placeholder.html"
+      "signup": "https://loganb46.github.io/MedicMate.github.io/placeholder.html"
     },
     {
       "title": "In Service Training: New MedicMate App Features",
@@ -35,7 +35,7 @@
       "location": "Station Training Room",
       "type": "In Service Training",
       "description": "Focused training on pediatric emergency care protocols.",
-      "signup": "placeholder.html"
+      "signup": "https://loganb46.github.io/MedicMate.github.io/placeholder.html"
     },
     {
       "title": "Stop The Bleed Course",
@@ -44,7 +44,7 @@
       "location": "Community Center",
       "type": "Special Event",
       "description": "Stop the Bleed course for community members. 3 instructors needed.",
-      "signup": "placeholder.html"
+      "signup": "https://loganb46.github.io/MedicMate.github.io/placeholder.html"
     }
   ]
 }

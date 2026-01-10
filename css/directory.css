@@ -48,3 +48,52 @@ body {
 .navbar .nav-link {
   font-family: "Lucida Console", "Courier New", monospace;
 }
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.facility-card {
+  background: #0b0b0b;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.facility-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.facility-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.type-hospital { background-color: rgb(20, 148, 166, .15); color: #14b8a6; }
+.type-freestanding { background-color: rgb(20, 148, 166, .15); color: #ff6347; }
+.type-pediatric { background-color: rgb(20, 148, 166, .15); color: #87ceed; }
+.type-obgyn { background-color: rgb(20, 148, 166, .15); color: #db7093; }
+.type-other { background-color: rgb(20, 148, 166, .15); color: #2e8b57; }
+
+.facility-location {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+  color: whitesmoke;
+}
+
+.facility-door-access {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 0.25rem;
+  color: orange;
+}
+
+.facility-phone {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.facility-phone:hover {
+  text-decoration: underline;
+}
