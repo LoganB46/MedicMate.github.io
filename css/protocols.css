@@ -1,0 +1,63 @@
+.head{
+color: var(--link);
+padding-left: 5px;
+  margin: 5px;
+  text-align: center;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+/* Small layout helpers to match your theme */
+    .protocols-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) {
+      .protocols-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .panel {
+      background: var(--bg);
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+    .index-list {
+        background-color: var(--bg);
+        color: var(--text);
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .index-list a {
+      display: block;
+      padding: 0.55rem 0.6rem;
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .index-list a:hover {
+      border-color: #222;
+      background: var(--link);
+    }
+    .viewer-wrap {
+      height: 80vh;
+      border: 1px solid #222;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .viewer {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .navbar-brand {
+  color: white !important;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar .nav-link {
+  font-family: "Lucida Console", "Courier New", monospace;
+}

@@ -129,4 +129,38 @@ Activity Log:
 [ ] Styled directory.html and added facility cards to display facility information.
 [ ] Changed the links in the event cards to open a placeholder page when the sign up link is clicked.
 
+[2026-01-10]
+Notes:
+! CSS adjustments for all pages
+background: var(--bg)
+color: var(--text)
+color: var(--link)  PAGE HEADER
 
+! HTML adjustments for all pages
+- <link href="css/theme.css" rel="stylesheet"> between bootstrap and regular css file
+- <script src="js/theme-toggle.js"></script>  at the bottom just before </body>
+Ideas:
+- Redesign the look of the EMSA calculator
+- Redesign the look of the GCS calculator
+TODO:
+[ ] Create a light/ dark mode
+Activity Log:
+[ ] Added option to tap on the phone numbers in the directory page and be taken to users defualt call app with selected number dialed.
+[ ] Added Navigation button on directory page, that will open up the users defualt map program with the facility address.
+[ ] 
+
+
+Checklist: Html Files Modified with new navbar setup:
+[√] events.html
+[√] index.html
+[√] about.html
+[√] burn.html
+[√] directory.html
+[√] divert.html
+[ ] divertgui.html
+[√] drugcalc.html
+[√] emsa.html
+[√] gcs.html
+[√] protocols.html
+[√] weight.html
+[√] worksheet.html

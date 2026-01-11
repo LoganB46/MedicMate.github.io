@@ -17,27 +17,48 @@ async function loadfaciliy() {
     );
 
     for (const fac of hfacilities) {
-      const card = document.createElement("div");
-      card.className = "facility-card";
+  const card = document.createElement("div");
+  card.className = "facility-card";
 
-      const phone = (fac.contact || "").replace(/[^\d+]/g, ""); // strip formatting
+  // Phone
+  const phone = (fac.contact || "").replace(/[^\d+]/g, "");
+  const phoneLink = fac.contact
+    ? `<a href="tel:${phone}" class="facility-phone" onclick="event.stopPropagation()">${fac.contact}</a>`
+    : "—";
 
-const phoneLink = fac.contact
-  ? `<a href="tel:${phone}" class="facility-phone">${fac.contact}</a>`
-  : "—";
+  // Navigation
+  const address = fac.location || "";
+  const navLink = address
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
+    : "";
 
-    
-    card.innerHTML = `
-        <div class="facility-header">
-            <div class="facility-name">${fac.name}</div>
-            <div class="facility-type ${facilityTypeClass(fac.type)}">${fac.type || ""}</div>
-        </div>
-        <div class="facility-location">${fac.location || ""}</div>  
-        <div class="facility-contact">${phoneLink}</div>
-        <div class="facility-door-access">${fac.doorAccess || ""}</div>
-    `;
+  const navButton = navLink
+    ? `<a href="${navLink}" target="_blank" rel="noopener"
+         class="facility-nav"
+         onclick="event.stopPropagation()">
+         Navigate
+       </a>`
+    : "";
 
-      list.appendChild(card);
+  card.innerHTML = `
+    <div class="facility-header">
+      <div class="facility-name">${fac.name}</div>
+      <div class="facility-type ${facilityTypeClass(fac.type)}">${fac.type || ""}</div>
+    </div>
+
+    <div class="facility-location">${fac.location || ""}</div>
+
+    <div class="facility-actions">
+      ${phoneLink}
+      ${navButton}
+    </div>
+
+    <div class="facility-door-access">Door: ${fac.doorAccess || "—"}</div>
+  `;
+
+  list.appendChild(card);
+
+
     }
     if (data.lastUpdated) {
       updated.textContent = new Date(data.lastUpdated).toLocaleString();

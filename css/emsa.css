@@ -1,9 +1,8 @@
 body {
-  background-color: black;
+  background-color: var(--bg);
 }
 #header {
-  color: rgb(22, 5, 182);
-  border: 1px solid black;
+  color: var(--link);
   padding-left: 5px;
   margin: 5px;
   text-align: center;
@@ -12,7 +11,7 @@ body {
 body {
   font-family: "Lucida Console", "Courier New", monospace;
   margin: 20px;
-  color: white;
+  color: var(--text);
 }
 .checkbox-group {
   margin-bottom: 15px;
@@ -20,7 +19,7 @@ body {
 label {
   display: block;
   margin-bottom: 5px;
-  color: white;
+  color: var(--text);
 }
 button {
   padding: 10px 15pxl;
@@ -33,15 +32,15 @@ button {
 h5 {
   font-family: "Lucida Console", "Courier New", monospace;
   margin: 20px;
-  color: white;
+  color: var(--text);
 }
 h6 {
   font-family: "Lucida Console", "Courier New", monospace;
   margin: 5px;
-  color: white;
+  color: var(--text);
 }
 #emsatable {
-  color: white;
+  color: var(--text);
   text-align: center;
   font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -60,6 +59,7 @@ td {
 }
 th {
   background-color: rgb(74, 71, 71);
+  color: var(--text);
   font-size: 1rem;
   font-weight: 700;
 }

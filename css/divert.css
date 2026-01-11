@@ -1,17 +1,11 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: var(--bg);
+  color: var(--text);
 }
 #header {
-  color: rgb(22, 5, 182);
-  border: 1px solid black;
+  color: var(--link);
   padding-left: 5px;
   margin: 5px;
-  text-align: center;
-  font-family: "Lucida Console", "Courier New", monospace;
-}
-#emsatable {
-  color: white;
   text-align: center;
   font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -30,6 +24,7 @@ td {
 }
 th {
   background-color: rgb(74, 71, 71);
+  color: white;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -78,7 +73,7 @@ tr:nth-of-type(2n) {
 .row-warning,
 .row-warning td {
   background-color: #f1c40f !important;
-  color: #000 !important;
+  color: var(--text) !important;
   font-weight: 700;
 }
 .navbar-brand {

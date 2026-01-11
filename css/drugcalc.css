@@ -1,22 +1,24 @@
 body {
-    background-color: black;
+    background-color: var(--bg);
+    color: var(--text);
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
-#header {color: rgb(22, 5, 182);
-    border: 1px solid black;
+#header {
+    color: var(--link);
     padding-left: 5px;
     margin: 5px;
     text-align: center;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 #dripcalc {
-        background-color: #fff;
+        background-color: var(--bg);
+        color: var(--text);
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px var(--link);
         max-width: 400px;
         width: 100%;
 }
@@ -39,7 +41,6 @@ form input {
 
 button {
     display: block;
-    width: 100%;
     padding: 10px;
     margin-top: 20px;
     background-color: #007bff;
@@ -52,7 +53,7 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-    .navbar-brand {
+.navbar-brand {
   color: white !important;
   font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -61,10 +62,11 @@ button:hover {
   font-family: "Lucida Console", "Courier New", monospace;
 }
 #dosecalc {
-        background-color: #fff;
+        background-color: var(--bg);
+        color: var(--text);
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px var(--link);
         max-width: 400px;
         width: 100%;
 }

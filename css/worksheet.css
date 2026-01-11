@@ -1,8 +1,8 @@
 /* worksheet.css - matches your dark Medic Mate theme */
 
 body {
-  background-color: black;
-  color: white;
+  background-color: var(--bg);
+  color: var(--text);
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
@@ -26,45 +26,47 @@ body {
 }
 
 .actions {
+  color: var(--text);
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .panel-card {
-  background: gainsboro;
+  background: var(--bg);
+  color: var(--text);
   border: 1px solid #222;
   border-radius: 12px;
   margin-bottom: 1rem;
 }
 
 .panel-header {
-  background: dimgray;
-  border-bottom: 1px solid #222;
+  background: var(--bg);
+  border-bottom: 1px solid var(--link);
+  color: var(--text);
   font-weight: 700;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  color: black;
 }
 
 .form-label {
   font-weight: 700;
-  color: black;
+  color: var(--text);
 }
 
 .form-control,
 .form-select {
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  border: 1px solid #000ba3;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--link);
   border-radius: 10px;
 }
 
 .form-control:focus,
 .form-select:focus {
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  border-color: #14b8a6;
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--link);
   box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
 }
 

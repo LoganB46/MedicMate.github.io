@@ -49,6 +49,13 @@
       "contact": "(555) 888-9999",
       "type": "Hospital",
       "doorAccess": "1234"
-    } 
+    },
+    {
+      "name": "Crisis Center",
+      "location": "2401 Gordon Smith Dr, Mobile, AL",
+      "contact":"(555) 123-4567",
+      "type": "Other",
+      "doorAccess": "1234"
+    }
   ]
 }

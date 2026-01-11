@@ -1,10 +1,9 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--bg);
+    color: var(--text);
   }
   #header {
-    color: rgb(22, 5, 182);
-    border: 1px solid black;
+    color: var(--link);
     padding-left: 5px;
     margin: 5px;
     text-align: center;
@@ -54,7 +53,7 @@ body {
   gap: 1rem;
 }
 .facility-card {
-  background: #0b0b0b;
+  background: var(--bg);
   border: 1px solid #222;
   border-radius: 12px;
   padding: 0.8rem;
@@ -68,24 +67,24 @@ body {
   font-weight: 700;
   font-size: 1.05rem;
 }
-.type-hospital { background-color: rgb(20, 148, 166, .15); color: #14b8a6; }
-.type-freestanding { background-color: rgb(20, 148, 166, .15); color: #ff6347; }
-.type-pediatric { background-color: rgb(20, 148, 166, .15); color: #87ceed; }
-.type-obgyn { background-color: rgb(20, 148, 166, .15); color: #db7093; }
-.type-other { background-color: rgb(20, 148, 166, .15); color: #2e8b57; }
+.type-hospital { background-color: #14b8a6; color: var(--text); border: 1px solid #222; border-radius: 8px; padding: 0.2rem }
+.type-freestanding { background-color: #ff6347; color: var(--text); border: 1px solid #222; border-radius: 8px; padding: 0.2rem }
+.type-pediatric { background-color: #87ceed; color: var(--text); border: 1px solid #222; border-radius: 8px; padding: 0.2rem }
+.type-obgyn { background-color: #db7093; color: var(--text);border: 1px solid #222; border-radius: 8px; padding: 0.2rem }
+.type-other { background-color: #2e8b57; color:var(--text); border: 1px solid #222; border-radius: 8px; padding: 0.2rem }
 
 .facility-location {
   font-size: 0.9rem;
   opacity: 0.85;
   margin-top: 0.25rem;
-  color: whitesmoke;
+  color: var(--text);
 }
 
 .facility-door-access {
   font-size: 0.9rem;
   opacity: 0.85;
   margin-top: 0.25rem;
-  color: orange;
+  color: var(--link);
 }
 
 .facility-phone {
@@ -96,4 +95,24 @@ body {
 
 .facility-phone:hover {
   text-decoration: underline;
+}
+.facility-actions {
+  display: flex;
+  gap: .5rem;
+  margin-top: .25rem;
+}
+
+.facility-nav {
+  padding: .15rem .5rem;
+  border-radius: 10px;
+  border: 1px solid #222;
+  background: rgba(59,130,246,.15);
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.facility-nav:hover {
+  opacity: .85;
 }
